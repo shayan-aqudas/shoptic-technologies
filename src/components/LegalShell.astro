@@ -1,0 +1,23 @@
+---
+interface Props { label: string; title: string; meta: string; toc: { id: string; t: string }[]; }
+const { label, title, meta, toc } = Astro.props;
+---
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="sl">//</span> {label}</div>
+    <h1 class="display reveal mt-6 text-silver" style="--d:80ms;font-size:clamp(2.4rem,5vw,4.2rem)">{title}</h1>
+    <p class="mono reveal mt-5 text-[13px]" style="--d:160ms;color:var(--dim)" set:html={meta} />
+  </div>
+</section>
+<section class="wrap">
+  <div class="legal-grid">
+    <aside class="glass toc reveal">
+      <div class="eyebrow mb-3 px-2"><span class="sl">//</span> on this page</div>
+      {toc.map((s, i) => <a href={`#${s.id}`}><span class="mono text-[12px] mr-2" style="color:var(--orange)">{String(i + 1).padStart(2, '0')}</span>{s.t}</a>)}
+    </aside>
+    <article class="glass legal reveal" style="--d:100ms">
+      <slot />
+    </article>
+  </div>
+</section>

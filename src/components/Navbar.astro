@@ -1,123 +1,54 @@
 ---
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const currentPath = Astro.url.pathname;
+import { ArrowRight, ArrowUpRight, Menu, X } from '@lucide/astro';
 
-const navItems = [
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const links = [
   { name: 'Home', href: `${base}/` },
   { name: 'About', href: `${base}/about` },
-  { name: 'Our Products', href: `${base}/apps` },
-  { name: 'Privacy Policy', href: `${base}/privacy` },
-  { name: 'Terms', href: `${base}/terms` },
+  { name: 'Products', href: `${base}/apps` },
   { name: 'Contact', href: `${base}/contact` },
 ];
-
-const logoSrc = `${base}/images/shoptic-logo.svg`;
+const isActive = (href: string) => {
+  const h = href.replace(/\/$/, '') || '/';
+  return h === (base || '/') ? path === h || path === '/' : path.startsWith(h);
+};
 ---
 
-<header class="sticky top-4 z-50 max-w-5xl mx-auto px-4 sm:px-6 transition-all duration-300">
-  <nav class="nooraya-nav-glass rounded-full px-5 sm:px-6 py-3 flex items-center justify-between">
-    <!-- Brand Logo -->
-    <a href={`${base}/`} class="flex items-center gap-3 group">
-      <div class="relative flex items-center justify-center">
-        <div class="absolute inset-0 bg-cyan-500/25 rounded-xl blur-md group-hover:scale-125 transition-transform duration-300"></div>
-        <img src={logoSrc} alt="Shoptic Technologies" class="w-8 h-8 rounded-xl relative z-10 transition-transform duration-300 group-hover:scale-105" />
-      </div>
-      <div class="flex flex-col">
-        <span class="font-extrabold text-sm sm:text-base tracking-tight text-white group-hover:text-cyan-300 transition-colors">
-          Shoptic <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-emerald-400 to-indigo-400 font-light">Technologies</span>
-        </span>
-      </div>
+<header class="nav" id="nav">
+  <nav class="glass nav-pill" aria-label="Main">
+    <a href={`${base}/`} class="nav-logo" aria-label="Shoptic Technologies home">
+      <img src={`${base}/images/shoptic-wordmark.svg`} alt="Shoptic" width="160" height="30" />
     </a>
-
-    <!-- Desktop Navigation Links -->
-    <div class="hidden md:flex items-center gap-1">
-      {navItems.map((item) => {
-        const isHome = item.href === `${base}/` || item.href === base;
-        const isActive = isHome ? (currentPath === `${base}/` || currentPath === base) : currentPath.startsWith(item.href);
-        return (
-          <a
-            href={item.href}
-            class={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 ${
-              isActive
-                ? 'bg-white/15 text-cyan-300 shadow-[inset_0_1px_1px_rgba(255,255,255,0.25)] border border-white/20'
-                : 'text-gray-300 hover:text-white hover:bg-white/8'
-            }`}
-          >
-            {item.name}
-          </a>
-        );
-      })}
+    <div class="nav-links">
+      {links.map((l) => <a href={l.href} class={isActive(l.href) ? 'active' : ''}>{l.name}</a>)}
     </div>
-
-    <!-- Right Action & Mobile Toggle -->
-    <div class="flex items-center gap-2.5">
-      <a
-        href={`${base}/apps`}
-        class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold gold-liquid-btn cursor-pointer"
-      >
-        <span>View Products</span>
-        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-        </svg>
+    <div class="flex items-center gap-2">
+      <a href={`${base}/contact`} class="btn btn-primary btn-sm nav-cta">
+        Start a project <ArrowRight class="go" />
       </a>
-
-      <!-- Mobile Hamburger Button -->
-      <button
-        id="mobile-menu-btn"
-        type="button"
-        class="md:hidden p-2 rounded-full text-gray-300 hover:text-white hover:bg-white/10 focus:outline-none"
-        aria-label="Toggle menu"
-      >
-        <svg id="menu-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-        <svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
-        </svg>
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false">
+        <Menu class="i-open" /><X class="i-close" style="display:none" />
       </button>
     </div>
   </nav>
-
-  <!-- Mobile Dropdown Menu -->
-  <div id="mobile-menu" class="hidden md:hidden mt-3 nooraya-nav-glass rounded-3xl p-5 shadow-2xl space-y-2 border border-white/20">
-    {navItems.map((item) => {
-      const isHome = item.href === `${base}/` || item.href === base;
-      const isActive = isHome ? (currentPath === `${base}/` || currentPath === base) : currentPath.startsWith(item.href);
-      return (
-        <a
-          href={item.href}
-          class={`block px-4 py-2.5 rounded-2xl text-xs font-semibold tracking-wide transition-all ${
-            isActive
-              ? 'bg-cyan-500/25 text-cyan-300 border border-cyan-500/35'
-              : 'text-gray-300 hover:text-white hover:bg-white/8'
-          }`}
-        >
-          {item.name}
-        </a>
-      );
-    })}
-    <div class="pt-3 border-t border-white/10">
-      <a
-        href={`${base}/apps`}
-        class="block w-full text-center py-3 rounded-full text-xs font-bold gold-liquid-btn"
-      >
-        View Our Products
-      </a>
-    </div>
+  <div class="glass glass-strong mobile-menu" id="mobile-menu">
+    {links.map((l) => <a href={l.href} class={isActive(l.href) ? 'active' : ''}>{l.name}<ArrowUpRight /></a>)}
+    <a href={`${base}/privacy`}>Privacy Policy<ArrowUpRight /></a>
+    <a href={`${base}/contact`} class="btn btn-primary mt-2" style="justify-content:center;color:#fff">Start a project</a>
   </div>
 </header>
 
 <script>
-  const btn = document.getElementById('mobile-menu-btn');
-  const menu = document.getElementById('mobile-menu');
-  const openIcon = document.getElementById('menu-icon-open');
-  const closeIcon = document.getElementById('menu-icon-close');
-
-  if (btn && menu && openIcon && closeIcon) {
-    btn.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-      openIcon.classList.toggle('hidden');
-      closeIcon.classList.toggle('hidden');
-    });
-  }
+  const nav = document.getElementById('nav');
+  const btn = document.getElementById('menu-btn');
+  const onScroll = () => nav?.classList.toggle('scrolled', window.scrollY > 24);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  btn?.addEventListener('click', () => {
+    const open = nav?.classList.toggle('open') ?? false;
+    btn.setAttribute('aria-expanded', String(open));
+    (btn.querySelector('.i-open') as HTMLElement).style.display = open ? 'none' : '';
+    (btn.querySelector('.i-close') as HTMLElement).style.display = open ? '' : 'none';
+  });
 </script>

@@ -1,165 +1,83 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Mail, Handshake, Clock, Send } from '@lucide/astro';
 ---
 
-<Layout
-  title="Contact & Support — Shoptic Technologies"
-  description="Get in touch with Shoptic Technologies for app support, developer inquiries, and business partnerships."
->
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 pt-16 sm:pt-20 pb-20">
-    <!-- Header -->
-    <div class="text-center space-y-4 mb-16">
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full nooraya-pill text-xs font-semibold text-[#FFE3A1] border border-white/15">
-        <span>Support & Communication Desk</span>
-      </div>
-      <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
-        We're Here to <span class="gold-gradient-text">Help</span>.
+<Layout title="Contact — Shoptic Technologies" description="Contact Shoptic Technologies for app support, new projects and business partnerships.">
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow reveal"><span class="sl">//</span> contact</div>
+      <h1 class="display reveal mt-6" style="--d:80ms;font-size:clamp(2.5rem,5.6vw,4.8rem)">
+        <span class="text-silver">Let’s talk</span><span class="caret"></span>
       </h1>
-      <p class="text-gray-300 text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
-        Whether you have feedback on Nooraya, need assistance with your subscription, or want to explore collaboration, send us a note.
+      <p class="lead reveal mt-6 max-w-2xl" style="--d:160ms">
+        A new project, feedback on Nooraya or a partnership idea. Send us a note and a real person will reply.
       </p>
     </div>
+  </section>
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-      <!-- Contact Info Cards (Col 1) -->
-      <div class="lg:col-span-5 space-y-4">
-        <!-- Card 1 -->
-        <div class="nooraya-glass rounded-[28px] p-6 space-y-3">
-          <div class="w-10 h-10 rounded-2xl nooraya-pill flex items-center justify-center text-[#FFD56B] text-lg border border-white/20">
-            ✉️
+  <section class="wrap">
+    <div class="grid gap-5 lg:grid-cols-[0.9fr_1.1fr] items-start">
+      <div class="grid gap-5">
+        <a href="mailto:support@shoptictechnologies.com" class="glass card lift reveal block">
+          <div class="icon-tile"><Mail /></div>
+          <h3 class="h3">App support & bugs</h3>
+          <p class="body">Technical questions, prayer time checks or bug reports for Nooraya.</p>
+          <p class="mono mt-4 text-[14px]" style="color:var(--orange-hi)">support@shoptictechnologies.com</p>
+        </a>
+        <a href="mailto:contact@shoptictechnologies.com" class="glass card lift reveal block" style="--d:80ms">
+          <div class="icon-tile"><Handshake /></div>
+          <h3 class="h3">Projects & partnerships</h3>
+          <p class="body">New software projects, business proposals and general studio questions.</p>
+          <p class="mono mt-4 text-[14px]" style="color:var(--orange-hi)">contact@shoptictechnologies.com</p>
+        </a>
+        <div class="glass card reveal flex gap-4 items-start" style="--d:160ms">
+          <div class="icon-tile" style="flex:none"><Clock /></div>
+          <div>
+            <h3 class="h3" style="margin-top:.2rem">Response time</h3>
+            <p class="body">We review every message and usually reply within <strong class="text-white font-medium">24 to 48 business hours</strong>.</p>
           </div>
-          <h3 class="text-base font-bold text-white">App Support & Bugs</h3>
-          <p class="text-xs text-gray-400 leading-relaxed">
-            For technical inquiries, prayer time verification, or bug reports regarding Nooraya:
-          </p>
-          <a href="mailto:support@shoptictechnologies.com" class="text-xs font-bold text-[#FFD56B] hover:underline block">
-            support@shoptictechnologies.com
-          </a>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="nooraya-glass rounded-[28px] p-6 space-y-3">
-          <div class="w-10 h-10 rounded-2xl nooraya-pill flex items-center justify-center text-[#34D399] text-lg border border-white/20">
-            🤝
-          </div>
-          <h3 class="text-base font-bold text-white">General & Partnerships</h3>
-          <p class="text-xs text-gray-400 leading-relaxed">
-            For developer outreach, business proposals, and studio queries:
-          </p>
-          <a href="mailto:contact@shoptictechnologies.com" class="text-xs font-bold text-[#34D399] hover:underline block">
-            contact@shoptictechnologies.com
-          </a>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="nooraya-glass rounded-[28px] p-6 space-y-2">
-          <div class="flex items-center gap-2 text-xs font-bold text-white">
-            <span class="w-2 h-2 rounded-full bg-[#34D399] animate-pulse"></span>
-            <span>Response Time SLA</span>
-          </div>
-          <p class="text-xs text-gray-400 leading-relaxed">
-            Our engineering team reviews all incoming support tickets promptly. We generally respond within <strong>24 to 48 business hours</strong>.
-          </p>
         </div>
       </div>
 
-      <!-- Interactive Contact Form (Col 2) -->
-      <div class="lg:col-span-7">
-        <div class="nooraya-glass rounded-[36px] p-6 sm:p-10 border border-white/15">
-          <h3 class="text-xl font-bold text-white tracking-tight mb-2">Send a Direct Message</h3>
-          <p class="text-xs text-gray-400 mb-6">Fill in the fields below and our developer team will reach out directly.</p>
-
-          <form id="contact-form" class="space-y-4">
-            <div>
-              <label for="name" class="block text-xs font-bold text-gray-300 mb-1.5">Your Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                placeholder="e.g. Shayan Aqudas"
-                class="w-full px-4 py-3 rounded-2xl nooraya-input text-sm placeholder:text-gray-500"
-              />
-            </div>
-
-            <div>
-              <label for="email" class="block text-xs font-bold text-gray-300 mb-1.5">Email Address</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                placeholder="you@example.com"
-                class="w-full px-4 py-3 rounded-2xl nooraya-input text-sm placeholder:text-gray-500"
-              />
-            </div>
-
-            <div>
-              <label for="subject" class="block text-xs font-bold text-gray-300 mb-1.5">Subject / Topic</label>
-              <select
-                id="subject"
-                name="subject"
-                class="w-full px-4 py-3 rounded-2xl nooraya-input text-sm bg-[#11131A]"
-              >
-                <option value="nooraya-support">Nooraya App Support</option>
-                <option value="bug-report">Bug / Defect Report</option>
-                <option value="feature-request">Feature Request</option>
-                <option value="privacy">Privacy / Data Inquiry</option>
-                <option value="business">Business / Collaboration</option>
-              </select>
-            </div>
-
-            <div>
-              <label for="message" class="block text-xs font-bold text-gray-300 mb-1.5">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
-                required
-                placeholder="How can we assist you with our apps?"
-                class="w-full px-4 py-3 rounded-2xl nooraya-input text-sm placeholder:text-gray-500 resize-none"
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              id="submit-btn"
-              class="w-full py-3.5 rounded-full text-xs sm:text-sm font-bold gold-liquid-btn cursor-pointer flex items-center justify-center gap-2"
-            >
-              <span>Transmit Message</span>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-              </svg>
-            </button>
-          </form>
-
-          <!-- Success Alert Message -->
-          <div id="form-success" class="hidden mt-4 p-4 rounded-2xl nooraya-glass border border-[#34D399]/40 bg-[#34D399]/10 text-[#A7F3D0] text-xs text-center font-medium">
-            ✔ Thank you! Your message has been routed to our team. We will reply to your email shortly.
+      <div class="glass card reveal" style="--d:120ms">
+        <h2 class="h3" style="margin-top:0;font-size:1.6rem">Send a message</h2>
+        <p class="body">Fill in the form and it opens in your email app, ready to send.</p>
+        <form id="contact-form" class="grid gap-4 mt-7">
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="field"><label for="name">your name</label><input class="input" id="name" name="name" required placeholder="Full name" autocomplete="name" /></div>
+            <div class="field"><label for="email">email</label><input class="input" type="email" id="email" name="email" required placeholder="you@example.com" autocomplete="email" /></div>
           </div>
-        </div>
+          <div class="field">
+            <label for="topic">topic</label>
+            <select class="input" id="topic" name="topic">
+              <option value="New project">New project</option>
+              <option value="Nooraya support">Nooraya app support</option>
+              <option value="Bug report">Bug report</option>
+              <option value="Feature request">Feature request</option>
+              <option value="Privacy question">Privacy or data question</option>
+              <option value="Partnership">Business or partnership</option>
+            </select>
+          </div>
+          <div class="field"><label for="message">message</label><textarea class="input" id="message" name="message" rows="6" required placeholder="Tell us a little about it"></textarea></div>
+          <button type="submit" class="btn btn-primary mt-2" style="justify-self:start">Send message <Send class="go" /></button>
+          <p id="form-note" class="mono text-[12.5px]" style="color:var(--faint)" hidden></p>
+        </form>
       </div>
     </div>
-  </div>
+  </section>
 </Layout>
 
 <script>
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
-  const successBox = document.getElementById('form-success');
-  const submitBtn = document.getElementById('submit-btn');
-
-  if (form && successBox && submitBtn) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      submitBtn.setAttribute('disabled', 'true');
-      submitBtn.classList.add('opacity-50');
-      
-      setTimeout(() => {
-        form.reset();
-        submitBtn.removeAttribute('disabled');
-        submitBtn.classList.remove('opacity-50');
-        successBox.classList.remove('hidden');
-      }, 600);
-    });
-  }
+  const note = document.getElementById('form-note');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const d = new FormData(form);
+    const topic = String(d.get('topic'));
+    const to = /support|Bug|Feature|Privacy/i.test(topic) ? 'support@shoptictechnologies.com' : 'contact@shoptictechnologies.com';
+    const body = `${d.get('message')}\n\n— ${d.get('name')} (${d.get('email')})`;
+    window.location.href = `mailto:${to}?subject=${encodeURIComponent(`${topic} — ${d.get('name')}`)}&body=${encodeURIComponent(body)}`;
+    if (note) { note.hidden = false; note.textContent = `// opening your email app to send this to ${to}`; }
+  });
 </script>

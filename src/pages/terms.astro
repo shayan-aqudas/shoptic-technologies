@@ -1,110 +1,70 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import LegalShell from '../components/LegalShell.astro';
+
+const toc = [
+  { id: 'agreement', t: 'Agreement to terms' },
+  { id: 'ip', t: 'Intellectual property' },
+  { id: 'license', t: 'License & restrictions' },
+  { id: 'purchases', t: 'In-app purchases' },
+  { id: 'warranty', t: 'Disclaimer of warranties' },
+  { id: 'liability', t: 'Limitation of liability' },
+  { id: 'contact', t: 'Contact & legal inquiries' },
+];
 ---
 
-<Layout
-  title="Terms & Conditions — Shoptic Technologies"
-  description="Terms and conditions governing the use of applications and services provided by Shoptic Technologies."
->
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 pt-16 sm:pt-20 pb-20">
-    <!-- Header -->
-    <div class="space-y-3 mb-12">
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full nooraya-pill text-xs font-semibold text-[#FFE3A1] border border-white/15">
-        <span>Terms of Service</span>
+<Layout title="Terms & Conditions — Shoptic Technologies" description="Terms and conditions governing the use of applications and services provided by Shoptic Technologies.">
+  <LegalShell label="legal" title="Terms & Conditions" meta="Last updated: November 20, 2026 · Covers <strong style='color:#fff;font-weight:500'>Shoptic Technologies</strong> digital applications" toc={toc}>
+    <section>
+      <h2 id="agreement"><span class="n">01</span>Agreement to Terms</h2>
+      <p>These Terms and Conditions constitute a legally binding agreement made between you and <strong>Shoptic Technologies</strong> (“Company,” “we,” “us,” or “our”), concerning your access to and use of our mobile applications (including <strong>Nooraya</strong>) and related services.</p>
+      <p>By downloading, installing, or utilizing our software, you confirm that you have read, understood, and agreed to be bound by all of these terms. If you do not agree with all of these terms, you must discontinue use immediately.</p>
+    </section>
+
+    <section>
+      <h2 id="ip"><span class="n">02</span>Intellectual Property Rights</h2>
+      <p>Unless otherwise indicated, all applications, proprietary algorithms, source code, visual interfaces, graphic design, audio arrangements, logos, and trademarks (including the “Shoptic Technologies” and “Nooraya” brands) are our proprietary property and are protected by applicable intellectual property and copyright laws.</p>
+      <p>Islamic religious texts, Quranic verses, and authentic hadith translations included in Nooraya are sourced from recognized scholarly databases and public domain archives preserved for the global Muslim community.</p>
+    </section>
+
+    <section>
+      <h2 id="license"><span class="n">03</span>Permitted License & Restrictions</h2>
+      <p>We grant you a revocable, non-exclusive, non-transferable, limited license to download, install, and execute our applications on mobile devices solely for your personal, non-commercial purposes.</p>
+      <ul>
+        <li>You shall not decompile, reverse engineer, disassemble, or attempt to derive the source code of our applications.</li>
+        <li>You shall not modify, adapt, or create derivative works from the application binaries.</li>
+        <li>You shall not use the applications for any unlawful purpose or in violation of any local, national, or international regulations.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 id="purchases"><span class="n">04</span>In-App Purchases & Premium Access</h2>
+      <p>Certain features or ad-free tiers (such as <em>Nooraya Gold</em>) may be made available via Google Play In-App Billing:</p>
+      <ul>
+        <li>All financial transactions and recurring subscriptions are managed securely through Google Play.</li>
+        <li>Subscriptions automatically renew unless cancelled at least 24 hours prior to the conclusion of the active billing period via Google Play Subscriptions.</li>
+        <li>Refund policies adhere directly to Google Play’s standard customer refund regulations.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 id="warranty"><span class="n">05</span>Disclaimer of Warranties</h2>
+      <p>Our applications are provided on an “AS-IS” and “AS-AVAILABLE” basis. While we employ rigorous astronomical calculations for prayer times and magnetic compass algorithms for Qibla direction, environmental conditions (e.g., magnetic interference, building structures, sensor calibration) can influence accuracy. We encourage users to verify prayer timings with local community mosque announcements when in doubt.</p>
+    </section>
+
+    <section>
+      <h2 id="liability"><span class="n">06</span>Limitation of Liability</h2>
+      <p>To the maximum extent permitted by applicable law, Shoptic Technologies and its developers shall not be liable for any direct, indirect, incidental, special, or consequential damages resulting from the use or inability to use our applications or services.</p>
+    </section>
+
+    <section>
+      <h2 id="contact"><span class="n">07</span>Contact & Legal Inquiries</h2>
+      <p>For questions, formal notices, or copyright inquiries concerning these Terms:</p>
+      <div class="box">
+        <p><strong>Shoptic Technologies — Legal Dept</strong></p>
+        <p>Email: <a href="mailto:support@shoptictechnologies.com">support@shoptictechnologies.com</a></p>
+        <p>Website: <a href="https://shoptictechnologies.com">https://shoptictechnologies.com</a></p>
       </div>
-      <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-        Terms & Conditions
-      </h1>
-      <p class="text-xs text-gray-400">
-        Last Updated: November 20, 2026 • Governing <strong>Shoptic Technologies</strong> digital applications
-      </p>
-    </div>
-
-    <!-- Content Container -->
-    <div class="nooraya-glass rounded-[36px] p-6 sm:p-12 space-y-8 text-gray-300 text-sm leading-relaxed border border-white/15">
-      <section class="space-y-3">
-        <h2 class="text-lg font-bold text-white tracking-tight flex items-center gap-2">
-          <span class="text-[#FFD56B]">1.</span> Agreement to Terms
-        </h2>
-        <p>
-          These Terms and Conditions constitute a legally binding agreement made between you and <strong>Shoptic Technologies</strong> ("Company," "we," "us," or "our"), concerning your access to and use of our mobile applications (including <strong>Nooraya</strong>) and related services.
-        </p>
-        <p>
-          By downloading, installing, or utilizing our software, you confirm that you have read, understood, and agreed to be bound by all of these terms. If you do not agree with all of these terms, you must discontinue use immediately.
-        </p>
-      </section>
-
-      <section class="space-y-3">
-        <h2 class="text-lg font-bold text-white tracking-tight flex items-center gap-2">
-          <span class="text-[#FFD56B]">2.</span> Intellectual Property Rights
-        </h2>
-        <p>
-          Unless otherwise indicated, all applications, proprietary algorithms, source code, visual interfaces, graphic design, audio arrangements, logos, and trademarks (including the "Shoptic Technologies" and "Nooraya" brands) are our proprietary property and are protected by applicable intellectual property and copyright laws.
-        </p>
-        <p class="text-xs text-gray-400">
-          Islamic religious texts, Quranic verses, and authentic hadith translations included in Nooraya are sourced from recognized scholarly databases and public domain archives preserved for the global Muslim community.
-        </p>
-      </section>
-
-      <section class="space-y-3">
-        <h2 class="text-lg font-bold text-white tracking-tight flex items-center gap-2">
-          <span class="text-[#FFD56B]">3.</span> Permitted License & Restrictions
-        </h2>
-        <p>
-          We grant you a revocable, non-exclusive, non-transferable, limited license to download, install, and execute our applications on mobile devices solely for your personal, non-commercial purposes.
-        </p>
-        <ul class="list-disc list-inside space-y-1.5 text-xs text-gray-300">
-          <li>You shall not decompile, reverse engineer, disassemble, or attempt to derive the source code of our applications.</li>
-          <li>You shall not modify, adapt, or create derivative works from the application binaries.</li>
-          <li>You shall not use the applications for any unlawful purpose or in violation of any local, national, or international regulations.</li>
-        </ul>
-      </section>
-
-      <section class="space-y-3">
-        <h2 class="text-lg font-bold text-white tracking-tight flex items-center gap-2">
-          <span class="text-[#FFD56B]">4.</span> In-App Purchases & Premium Access
-        </h2>
-        <p>
-          Certain features or ad-free tiers (such as <em>Nooraya Gold</em>) may be made available via Google Play In-App Billing:
-        </p>
-        <ul class="list-disc list-inside space-y-1 text-xs text-gray-300">
-          <li>All financial transactions and recurring subscriptions are managed securely through Google Play.</li>
-          <li>Subscriptions automatically renew unless cancelled at least 24 hours prior to the conclusion of the active billing period via Google Play Subscriptions.</li>
-          <li>Refund policies adhere directly to Google Play's standard customer refund regulations.</li>
-        </ul>
-      </section>
-
-      <section class="space-y-3">
-        <h2 class="text-lg font-bold text-white tracking-tight flex items-center gap-2">
-          <span class="text-[#FFD56B]">5.</span> Disclaimer of Warranties
-        </h2>
-        <p>
-          Our applications are provided on an "AS-IS" and "AS-AVAILABLE" basis. While we employ rigorous astronomical calculations for prayer times and magnetic compass algorithms for Qibla direction, environmental conditions (e.g., magnetic interference, building structures, sensor calibration) can influence accuracy. We encourage users to verify prayer timings with local community mosque announcements when in doubt.
-        </p>
-      </section>
-
-      <section class="space-y-3">
-        <h2 class="text-lg font-bold text-white tracking-tight flex items-center gap-2">
-          <span class="text-[#FFD56B]">6.</span> Limitation of Liability
-        </h2>
-        <p>
-          To the maximum extent permitted by applicable law, Shoptic Technologies and its developers shall not be liable for any direct, indirect, incidental, special, or consequential damages resulting from the use or inability to use our applications or services.
-        </p>
-      </section>
-
-      <section class="space-y-3 pt-3 border-t border-white/10">
-        <h2 class="text-lg font-bold text-white tracking-tight flex items-center gap-2">
-          <span class="text-[#FFD56B]">7.</span> Contact & Legal Inquiries
-        </h2>
-        <p>
-          For questions, formal notices, or copyright inquiries concerning these Terms:
-        </p>
-        <div class="nooraya-pill rounded-2xl p-5 text-xs space-y-1.5">
-          <p class="text-white font-bold text-sm">Shoptic Technologies — Legal Dept</p>
-          <p>Email: <a href="mailto:support@shoptictechnologies.com" class="text-[#FFD56B] hover:underline font-semibold">support@shoptictechnologies.com</a></p>
-          <p>Website: <a href="https://shoptictechnologies.com" class="text-cyan-400 hover:underline">https://shoptictechnologies.com</a></p>
-        </div>
-      </section>
-    </div>
-  </div>
+    </section>
+  </LegalShell>
 </Layout>

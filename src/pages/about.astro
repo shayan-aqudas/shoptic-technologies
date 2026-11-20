@@ -1,112 +1,73 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import SectionHead from '../components/SectionHead.astro';
+import CTA from '../components/CTA.astro';
+import { Gauge, Lock, Layers, LifeBuoy, ArrowRight } from '@lucide/astro';
+
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const principles = [
+  { icon: Gauge, t: 'Smooth by default', d: 'Every animation and layout is profiled on real devices so transitions stay fluid, without dropped frames.' },
+  { icon: Lock, t: 'Privacy by default', d: 'Calculations and sensor data stay on the user’s device wherever possible. We never sell personal data.' },
+  { icon: Layers, t: 'Tactile craftsmanship', d: 'Translucency, depth and careful motion that make software feel calm and physical to use.' },
+  { icon: LifeBuoy, t: 'Active stewardship', d: 'Continuous testing, timely Android platform updates and quick, human support after launch.' },
+];
+const stack = ['Flutter & Dart', 'Kotlin / Android native', 'Astro', 'Tailwind CSS', 'Firebase', 'SQLite', 'Cloudflare'];
 ---
 
-<Layout
-  title="About Us — Shoptic Technologies"
-  description="Learn about Shoptic Technologies, our engineering principles, and our dedication to building purposeful mobile experiences."
->
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 pt-16 sm:pt-20 pb-20">
-    <!-- Header -->
-    <div class="text-center space-y-4 mb-16">
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full nooraya-pill text-xs font-semibold text-[#FFE3A1] border border-white/15">
-        <span>About Shoptic Technologies</span>
-      </div>
-      <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
-        Crafting Software That <span class="gold-gradient-text">Respects</span> the User.
+<Layout title="About — Shoptic Technologies" description="Shoptic Technologies is an independent software studio building fast, calm and privacy-respecting mobile apps and digital products.">
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow reveal"><span class="sl">//</span> about us</div>
+      <h1 class="display reveal mt-6" style="--d:80ms;font-size:clamp(2.5rem,5.6vw,4.8rem)">
+        <span class="text-silver">Software that respects</span><br /><span class="text-ember">the people who use it</span><span class="caret"></span>
       </h1>
-      <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-        We are an independent software development studio focused on modern mobile experiences, utility apps, and digital craftsmanship.
+      <p class="lead reveal mt-6 max-w-2xl" style="--d:160ms">
+        We are an independent software development studio focused on modern mobile experiences, useful utilities and real digital craftsmanship.
       </p>
     </div>
+  </section>
 
-    <!-- Main Content Cards -->
-    <div class="space-y-8">
-      <!-- Story -->
-      <div class="nooraya-glass rounded-[32px] p-8 sm:p-12 space-y-4">
-        <h2 class="text-2xl font-bold text-white tracking-tight flex items-center gap-3">
-          <span class="text-[#FFD56B]">01.</span> Our Mission
-        </h2>
-        <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-          At Shoptic Technologies, our foundational premise is straightforward: digital products should be fast, aesthetically gratifying, and strictly respectful of user attention and privacy.
-        </p>
-        <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-          In an era where many mobile applications compromise user experience with aggressive tracking, battery-draining background processes, and cluttered interfaces, we build software that delivers calm, precision, and genuine utility.
-        </p>
+  <section class="wrap">
+    <div class="cards-2">
+      <div class="glass card reveal">
+        <div class="eyebrow"><span class="num">01 </span><span class="sl">//</span> our mission</div>
+        <h2 class="h3 mt-5" style="font-size:1.7rem">Fast, beautiful and respectful of your attention.</h2>
+        <p class="body mt-4">Our starting point is simple: digital products should be fast, a pleasure to look at, and respectful of the user’s attention and privacy.</p>
+        <p class="body mt-4">Too many apps trade experience for aggressive tracking, battery-draining background work and cluttered screens. We build software that delivers calm, precision and genuine usefulness instead.</p>
       </div>
-
-      <!-- Flagship Product -->
-      <div class="nooraya-glass rounded-[32px] p-8 sm:p-12 space-y-4">
-        <h2 class="text-2xl font-bold text-white tracking-tight flex items-center gap-3">
-          <span class="text-[#34D399]">02.</span> The Nooraya Journey
-        </h2>
-        <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-          Our flagship release, <strong>Nooraya</strong>, was conceptualized to redefine how Muslims across the globe connect with daily prayer, the Holy Quran, and authentic Islamic literature.
-        </p>
-        <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-          By combining a bespoke, tactile visual interface with high-accuracy astronomical algorithms, offline-capable audio caching, and zero invasive trackers, Nooraya stands as an embodiment of our studio's technical dedication.
-        </p>
-        <div class="pt-3">
-          <a href={`${base}/apps`} class="text-sm font-bold text-[#FFD56B] hover:text-[#FFE3A1] inline-flex items-center gap-2">
-            <span>Explore Nooraya Specifications</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Engineering Core Values -->
-      <div class="nooraya-glass rounded-[32px] p-8 sm:p-12 space-y-6">
-        <h2 class="text-2xl font-bold text-white tracking-tight flex items-center gap-3">
-          <span class="text-[#38BDF8]">03.</span> Engineering Principles
-        </h2>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div class="nooraya-pill rounded-2xl p-5 space-y-2">
-            <h3 class="text-sm font-bold text-white">Sub-Millisecond Rendering</h3>
-            <p class="text-xs text-gray-400 leading-relaxed">
-              Every animation and layout is profiling-verified to sustain 60 FPS transitions without frame drops or lag.
-            </p>
-          </div>
-          <div class="nooraya-pill rounded-2xl p-5 space-y-2">
-            <h3 class="text-sm font-bold text-white">Privacy by Default</h3>
-            <p class="text-xs text-gray-400 leading-relaxed">
-              We collect zero personally identifiable information. Sensor telemetry and calculations occur on the user's hardware.
-            </p>
-          </div>
-          <div class="nooraya-pill rounded-2xl p-5 space-y-2">
-            <h3 class="text-sm font-bold text-white">Tactile Craftsmanship</h3>
-            <p class="text-xs text-gray-400 leading-relaxed">
-              Subtle translucency, specular border reflections, and ambient depth establish an elevated sensory experience.
-            </p>
-          </div>
-          <div class="nooraya-pill rounded-2xl p-5 space-y-2">
-            <h3 class="text-sm font-bold text-white">Active Stewardship</h3>
-            <p class="text-xs text-gray-400 leading-relaxed">
-              Continuous QA, timely Android platform updates, and immediate community support resolution.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Studio Tech Stack -->
-      <div class="nooraya-glass rounded-[32px] p-8 sm:p-12 space-y-4">
-        <h2 class="text-2xl font-bold text-white tracking-tight flex items-center gap-3">
-          <span class="text-[#FFE3A1]">04.</span> Technology Ecosystem
-        </h2>
-        <p class="text-gray-300 text-sm leading-relaxed">
-          Our projects leverage robust, modern technologies built for scalability and stability:
-        </p>
-        <div class="flex wrap gap-2.5 pt-2">
-          {['Flutter & Dart', 'Kotlin / Android Native', 'Astro SSG', 'Tailwind CSS', 'Firebase Cloud Platform', 'SQLite Architecture', 'Cloudflare Edge CDN'].map((tech) => (
-            <span class="px-4 py-2 rounded-full nooraya-pill text-xs font-semibold text-gray-200">
-              {tech}
-            </span>
-          ))}
-        </div>
+      <div class="glass card reveal" style="--d:100ms">
+        <div class="eyebrow"><span class="num">02 </span><span class="sl">//</span> the nooraya journey</div>
+        <h2 class="h3 mt-5" style="font-size:1.7rem">Our flagship, built and maintained in-house.</h2>
+        <p class="body mt-4"><strong class="text-white font-medium">Nooraya</strong> was created to change how Muslims around the world connect with daily prayer, the Holy Quran and authentic Islamic literature.</p>
+        <p class="body mt-4">A bespoke, tactile interface, accurate astronomical calculations and offline-ready audio caching make it the clearest example of what our studio stands for.</p>
+        <a href={`${base}/apps`} class="btn btn-glass btn-sm mt-6">See Nooraya <ArrowRight class="go" /></a>
       </div>
     </div>
-  </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <SectionHead num="03" label="engineering principles" title="Four rules we never break." />
+      <div class="cards-4">
+        {principles.map((p, i) => (
+          <div class="glass card lift reveal" style={`--d:${i * 80}ms`}>
+            <div class="icon-tile"><p.icon /></div>
+            <h3 class="h3">{p.t}</h3>
+            <p class="body">{p.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <SectionHead num="04" label="technology" title="A focused, proven stack." sub="Robust, modern technology chosen for stability and room to scale." />
+      <div class="flex flex-wrap gap-3 reveal">
+        {stack.map((t) => <span class="chip" style="font-size:14px;padding:.75rem 1.2rem;color:var(--text)"><span class="dot"></span>{t}</span>)}
+      </div>
+    </div>
+  </section>
+
+  <CTA />
 </Layout>

@@ -1,157 +1,71 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const noorayaLogo = `${base}/images/nooraya-logo.png`;
-const noorayaScreenshot = `${base}/images/nooraya-screenshot.png`;
+import SectionHead from '../components/SectionHead.astro';
+import Nooraya from '../components/Nooraya.astro';
+import CTA from '../components/CTA.astro';
+import { BookOpen, Clock, Compass, Headphones, BellRing, Smartphone, Timer, ListChecks } from '@lucide/astro';
+
+const features = [
+  { icon: BookOpen, t: 'Complete Quran', d: 'Every surah with audio from renowned reciters, ready to stream or cache for offline listening.' },
+  { icon: Clock, t: 'Accurate prayer times', d: 'Astronomical calculations for your exact location, with timely Adhan reminders.' },
+  { icon: Compass, t: 'Qibla compass', d: 'A smooth, sensor-driven compass that points toward the Kaaba from wherever you are.' },
+  { icon: Headphones, t: 'Duas & peaceful audio', d: 'A calm library of duas and recitations for every moment of the day.' },
+  { icon: BellRing, t: 'Ringtones & Adhans', d: 'Set a sacred ringtone, Adhan or alarm tone in a single tap.' },
+  { icon: Smartphone, t: 'Light and focused', d: 'A clean, portrait-first design without clutter, built to stay fast on everyday phones.' },
+];
+const pipeline = [
+  { icon: Timer, t: 'Focus & mindfulness utility', s: 'In architecture', d: 'A minimalist deep-focus timer and soundscape generator with gentle, tactile animations.' },
+  { icon: ListChecks, t: 'Smart routine & habit tracker', s: 'Prototyping', d: 'An offline-first habit tracker with on-device storage, no subscription fatigue and helpful widgets.' },
+];
 ---
 
-<Layout
-  title="Our Products & Applications — Shoptic Technologies"
-  description="Explore mobile apps crafted by Shoptic Technologies including our flagship Islamic lifestyle companion Nooraya."
->
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-16 sm:pt-20 pb-20">
-    <!-- Header -->
-    <div class="text-center space-y-4 mb-16">
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full nooraya-pill text-xs font-semibold text-emerald-300 border border-emerald-500/30">
-        <span>Software Portfolio</span>
-      </div>
-      <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
-        Products Built with <span class="gold-gradient-text">Precision</span>.
+<Layout title="Products — Shoptic Technologies" description="Apps built by Shoptic Technologies, including Nooraya, our flagship Islamic lifestyle companion on Google Play.">
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow reveal"><span class="sl">//</span> products</div>
+      <h1 class="display reveal mt-6" style="--d:80ms;font-size:clamp(2.5rem,5.6vw,4.8rem)">
+        <span class="text-silver">Products built</span><br /><span class="text-ember">with precision</span><span class="caret"></span>
       </h1>
-      <p class="text-gray-300 text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
-        Discover our flagship applications and experimental tools engineered for mindful living and functional elegance.
-      </p>
+      <p class="lead reveal mt-6 max-w-2xl" style="--d:160ms">Our flagship app and the tools taking shape in our lab, all designed for calm, useful everyday software.</p>
     </div>
+  </section>
 
-    <!-- Flagship Product: Nooraya Deep Showcase -->
-    <div class="nooraya-glass rounded-[38px] p-6 sm:p-12 lg:p-14 mb-16 border border-white/15 relative overflow-hidden">
-      <!-- Glow ambient background -->
-      <div class="absolute top-0 right-0 w-[450px] h-[450px] bg-[#FFD56B]/10 rounded-full blur-3xl pointer-events-none"></div>
+  <section class="wrap">
+    <Nooraya detailed />
+  </section>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-        <!-- Content -->
-        <div class="lg:col-span-7 space-y-6">
-          <div class="flex items-center gap-4">
-            <div class="w-20 h-20 rounded-[26px] nooraya-glass p-2 border border-white/20 shadow-2xl flex items-center justify-center">
-              <img src={noorayaLogo} alt="Nooraya App Icon" class="w-16 h-16 rounded-[20px]" />
-            </div>
-            <div>
-              <div class="flex items-center gap-2.5">
-                <h2 class="text-3xl font-extrabold text-white tracking-tight">Nooraya</h2>
-                <span class="px-3 py-0.5 rounded-full text-[10px] font-bold bg-[#FFD56B]/15 text-[#FFE3A1] border border-[#FFD56B]/30">
-                  Active Production • v1.0.3
-                </span>
-              </div>
-              <p class="text-xs text-gray-400 mt-1 font-medium">Package: <code>com.nooraya.app</code> • Android 8.0+</p>
-            </div>
+  <section class="section">
+    <div class="wrap">
+      <SectionHead num="01" label="inside nooraya" title="Everything for the day, in one calm app." />
+      <div class="cards-3">
+        {features.map((f, i) => (
+          <div class="glass card lift reveal" style={`--d:${(i % 3) * 80}ms`}>
+            <div class="icon-tile"><f.icon /></div>
+            <h3 class="h3">{f.t}</h3>
+            <p class="body">{f.d}</p>
           </div>
-
-          <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-            Nooraya is our flagship sacred Islamic lifestyle companion. Crafted with an authentic, modern dark interface, it delivers verified astronomical prayer schedules, an animated sensor-driven Qibla compass, complete Quran audio recitations by renowned scholars, interactive Hadith books, and sacred ringtones.
-          </p>
-
-          <!-- Specifications List -->
-          <div class="space-y-3 pt-2">
-            <h3 class="text-xs font-bold uppercase tracking-wider text-[#FFD56B]">Core Capabilities</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-gray-300">
-              <div class="flex items-center gap-2.5 nooraya-pill p-3 rounded-2xl">
-                <span class="text-[#FFD56B]">✔</span>
-                <span>Full Quran with Audio Reciters</span>
-              </div>
-              <div class="flex items-center gap-2.5 nooraya-pill p-3 rounded-2xl">
-                <span class="text-[#FFD56B]">✔</span>
-                <span>Precise Location Prayer Timings</span>
-              </div>
-              <div class="flex items-center gap-2.5 nooraya-pill p-3 rounded-2xl">
-                <span class="text-[#FFD56B]">✔</span>
-                <span>Haptic Sensor Qibla Compass</span>
-              </div>
-              <div class="flex items-center gap-2.5 nooraya-pill p-3 rounded-2xl">
-                <span class="text-[#FFD56B]">✔</span>
-                <span>Sukoon Duas & Peaceful Audio</span>
-              </div>
-              <div class="flex items-center gap-2.5 nooraya-pill p-3 rounded-2xl">
-                <span class="text-[#FFD56B]">✔</span>
-                <span>1-Tap Sacred Ringtones & Adhans</span>
-              </div>
-              <div class="flex items-center gap-2.5 nooraya-pill p-3 rounded-2xl">
-                <span class="text-[#FFD56B]">✔</span>
-                <span>Global Portrait Lock & Zero Bloat</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Buttons -->
-          <div class="pt-4 flex flex-wrap items-center gap-4">
-            <a
-              href="https://play.google.com/store/apps/details?id=com.nooraya.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="gold-liquid-btn px-7 py-3.5 rounded-full text-xs sm:text-sm font-bold inline-flex items-center gap-2.5"
-            >
-              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M3.609 1.814L13.792 12 3.61 22.186c-.198-.124-.316-.341-.316-.583V2.397c0-.242.118-.459.315-.583zm11.37 11.37l2.42 2.42-12.012 6.864 9.592-9.284zm0-2.368L5.387 1.532l12.012 6.864-2.42 2.42zM16.166 12l2.844-2.844 3.738 2.136c.74.423.74 1.109 0 1.532l-3.738 2.136L16.166 12z"/>
-              </svg>
-              <span>Download on Google Play</span>
-            </a>
-            <a href={`${base}/privacy`} class="px-6 py-3.5 rounded-full text-xs font-semibold glass-btn-secondary">
-              Privacy Policy
-            </a>
-          </div>
-        </div>
-
-        <!-- Phone Preview Mockup -->
-        <div class="lg:col-span-5 flex justify-center">
-          <div class="w-[280px] sm:w-[310px] rounded-[40px] p-2.5 bg-gradient-to-b from-white/25 via-white/8 to-white/12 shadow-[0_30px_70px_rgba(0,0,0,0.9)] border border-white/25 backdrop-blur-2xl">
-            <img
-              src={noorayaScreenshot}
-              alt="Nooraya Interface"
-              class="w-full h-auto rounded-[32px] object-cover"
-            />
-          </div>
-        </div>
+        ))}
       </div>
     </div>
+  </section>
 
-    <!-- Future Pipeline Teasers -->
-    <div class="space-y-6">
-      <div class="flex items-center justify-between">
-        <div>
-          <h3 class="text-xl font-bold text-white tracking-tight">In The Lab / Upcoming Pipeline</h3>
-          <p class="text-xs text-gray-400 mt-0.5">Projects currently being designed by Shoptic Technologies engineers.</p>
-        </div>
-        <span class="text-xs px-3.5 py-1 rounded-full nooraya-pill text-gray-300 font-semibold">Roadmap 2026</span>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Upcoming 1 -->
-        <div class="nooraya-glass rounded-[28px] p-7 space-y-3 border border-white/12">
-          <div class="flex items-center justify-between">
-            <div class="text-2xl">⚡</div>
-            <span class="text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-[#FFD56B]/10 text-[#FFE3A1] border border-[#FFD56B]/20">
-              In Architecture Phase
-            </span>
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <SectionHead num="02" label="in the lab" title="What we are building next." sub="Projects our team is designing right now. Roadmap 2026." />
+      <div class="cards-2">
+        {pipeline.map((p, i) => (
+          <div class="glass card lift reveal" style={`--d:${i * 100}ms`}>
+            <div class="flex items-center justify-between gap-4">
+              <div class="icon-tile"><p.icon /></div>
+              <span class="status warm">{p.s}</span>
+            </div>
+            <h3 class="h3">{p.t}</h3>
+            <p class="body">{p.d}</p>
           </div>
-          <h4 class="text-base font-bold text-white">Focus & Mindfulness Utility</h4>
-          <p class="text-xs text-gray-400 leading-relaxed">
-            A minimalist deep-focus timer and soundscape synthesizer leveraging neuroscience-backed binaural frequencies and tactile animations.
-          </p>
-        </div>
-
-        <!-- Upcoming 2 -->
-        <div class="nooraya-glass rounded-[28px] p-7 space-y-3 border border-white/12">
-          <div class="flex items-center justify-between">
-            <div class="text-2xl">📊</div>
-            <span class="text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-[#34D399]/10 text-[#A7F3D0] border border-[#34D399]/20">
-              Prototyping
-            </span>
-          </div>
-          <h4 class="text-base font-bold text-white">Smart Routine & Habit Tracker</h4>
-          <p class="text-xs text-gray-400 leading-relaxed">
-            An offline-first personal progression tracker designed with zero subscription fatigue, end-to-end device storage, and intuitive haptic widgets.
-          </p>
-        </div>
+        ))}
       </div>
     </div>
-  </div>
+  </section>
+
+  <CTA />
 </Layout>

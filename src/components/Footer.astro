@@ -1,68 +1,45 @@
 ---
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const currentYear = new Date().getFullYear();
-const logoSrc = `${base}/images/shoptic-logo.svg`;
+const year = new Date().getFullYear();
 ---
 
-<footer class="mt-32 border-t border-white/10 relative overflow-hidden bg-[#0A0A0C]/85 backdrop-blur-2xl">
-  <!-- Specular Ambient Filament Line -->
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-4/5 max-w-4xl h-[1.5px] bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent"></div>
-
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
-      <!-- Col 1: Brand & Mission -->
-      <div class="md:col-span-2 space-y-4">
-        <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-xl nooraya-glass flex items-center justify-center border border-white/20">
-            <img src={logoSrc} alt="Shoptic Technologies Logo" class="w-6 h-6" />
-          </div>
-          <span class="font-extrabold text-lg text-white tracking-tight">
-            Shoptic <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">Technologies</span>
-          </span>
-        </div>
-        <p class="text-gray-400 text-sm leading-relaxed max-w-sm">
-          An independent digital software studio designing high-performance mobile applications, mindful utilities, and elegant digital products built with architectural rigor.
+<footer class="footer">
+  <div class="wrap">
+    <div class="glass footer-card">
+      <div>
+        <img src={`${base}/images/shoptic-logo-full.svg`} alt="Shoptic Technologies" width="230" height="60" style="height:56px;width:auto" />
+        <p class="body mt-5 max-w-sm text-[15px]">
+          An independent software studio designing fast, privacy-first mobile apps and digital products.
         </p>
-        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full nooraya-pill text-xs text-gray-300">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>Crafting Modern Digital Products</span>
-        </div>
       </div>
-
-      <!-- Col 2: Navigation -->
-      <div class="space-y-3">
-        <h4 class="text-xs uppercase tracking-widest font-bold text-cyan-400">Company</h4>
-        <ul class="space-y-2.5 text-sm">
-          <li><a href={`${base}/`} class="text-gray-400 hover:text-white transition-colors">Home Studio</a></li>
-          <li><a href={`${base}/about`} class="text-gray-400 hover:text-white transition-colors">About Our Craft</a></li>
-          <li><a href={`${base}/apps`} class="text-gray-400 hover:text-white transition-colors">Our Products & Apps</a></li>
-          <li><a href={`${base}/contact`} class="text-gray-400 hover:text-white transition-colors">Help & Contact</a></li>
+      <div>
+        <h4>// company</h4>
+        <ul>
+          <li><a href={`${base}/`}>Home</a></li>
+          <li><a href={`${base}/about`}>About</a></li>
+          <li><a href={`${base}/apps`}>Products</a></li>
+          <li><a href={`${base}/contact`}>Contact</a></li>
         </ul>
       </div>
-
-      <!-- Col 3: Compliance & Legal -->
-      <div class="space-y-3">
-        <h4 class="text-xs uppercase tracking-widest font-bold text-cyan-400">Legal & Support</h4>
-        <ul class="space-y-2.5 text-sm">
-          <li><a href={`${base}/privacy`} class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
-          <li><a href={`${base}/terms`} class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
-          <li class="pt-2 text-xs text-gray-400">
-            Developer Support:<br/>
-            <a href="mailto:support@shoptictechnologies.com" class="text-cyan-400 hover:underline font-medium">
-              support@shoptictechnologies.com
-            </a>
-          </li>
+      <div>
+        <h4>// legal</h4>
+        <ul>
+          <li><a href={`${base}/privacy`}>Privacy Policy</a></li>
+          <li><a href={`${base}/terms`}>Terms of Service</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>// get in touch</h4>
+        <ul>
+          <li><a href="mailto:contact@shoptictechnologies.com">contact@shoptictechnologies.com</a></li>
+          <li><a href="mailto:support@shoptictechnologies.com">support@shoptictechnologies.com</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.nooraya.app" target="_blank" rel="noopener noreferrer">Nooraya on Google Play</a></li>
         </ul>
       </div>
     </div>
-
-    <!-- Bottom Attribution -->
-    <div class="mt-14 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
-      <p>© {currentYear} Shoptic Technologies. All rights reserved.</p>
-      <p class="text-gray-400 flex items-center gap-2">
-        <span>Engineered with Architectural Rigor</span>
-        <span class="text-cyan-400">✦</span>
-      </p>
+    <div class="footer-bottom">
+      <span>&copy; {year} Shoptic Technologies. All rights reserved.</span>
+      <span>// always building<span class="caret" style="height:2px;width:9px;vertical-align:middle"></span></span>
     </div>
   </div>
 </footer>

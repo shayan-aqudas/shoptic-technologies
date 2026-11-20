@@ -1,0 +1,72 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+// [kind, text, result] — p: command, o: step with a result
+const lines: [string, string, string?][] = [
+  ['p', 'shoptic new app --platform android,ios'],
+  ['o', 'clean architecture', 'done'],
+  ['o', 'interface design', 'done'],
+  ['o', 'profiling on real devices', '60 fps'],
+  ['o', 'privacy review', 'passed'],
+  ['p', 'shoptic ship nooraya --store play'],
+  ['o', 'release', 'live'],
+];
+---
+
+<div class="term-stage">
+  <img class="float-icon" src={`${base}/images/shoptic-icon-live.svg`} alt="" width="116" height="116" />
+  <div class="glass terminal" data-terminal>
+    <div class="term-bar"><i></i><i></i><i></i><span class="t">~/shoptic — zsh</span></div>
+    <div class="term-body" aria-label="Shoptic build log">
+      {lines.map(([k, t, r]) =>
+        k === 'p'
+          ? <div class="row cmd"><span class="p">$&nbsp;</span><span class="c">{t}</span></div>
+          : <div class="row out"><span class="k">{t}</span><span class="leader"></span><span class="ok">{r}</span></div>
+      )}
+      <div class="row cmd"><span class="p">$&nbsp;</span><span class="term-caret"></span></div>
+    </div>
+  </div>
+  <span class="chip float-chip a"><span class="dot"></span>flutter · kotlin</span>
+  <span class="chip float-chip b"><span class="dot"></span>astro · cloudflare</span>
+</div>
+
+<style>
+  .row { display: flex; align-items: baseline; min-height: 1.95em; }
+  .row.out { padding-left: 1.2em; }
+  .row .c { white-space: normal; }
+  .leader { flex: 1; margin: 0 0.7em; border-bottom: 1px dotted rgba(255, 255, 255, 0.2); transform: translateY(-0.3em); min-width: 1.5em; }
+  .hide { visibility: hidden; }
+</style>
+
+<script>
+  // Types the log line by line. The static log stays for no-JS and reduced motion.
+  const root = document.querySelector('[data-terminal] .term-body') as HTMLElement | null;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (root && !reduce) {
+    const rows = Array.from(root.children) as HTMLElement[];
+    const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));
+    const parts = rows.map((row) => Array.from(row.children) as HTMLElement[]);
+    const texts = parts.map((ps) => ps.map((p) => p.textContent || ''));
+    rows.forEach((row) => row.classList.add('hide'));
+    (async () => {
+      await wait(450);
+      for (let i = 0; i < rows.length; i++) {
+        const ps = parts[i], row = rows[i];
+        if (i === rows.length - 1) { row.classList.remove('hide'); break; }
+        if (row.classList.contains('cmd')) {
+          ps[1].textContent = '';
+          row.classList.remove('hide');
+          for (let c = 1; c <= texts[i][1].length; c++) { ps[1].textContent = texts[i][1].slice(0, c); await wait(28); }
+          await wait(280);
+        } else {
+          ps[1].style.opacity = '0'; ps[2].style.opacity = '0';
+          row.classList.remove('hide');
+          await wait(120);
+          ps[1].style.transition = 'opacity .35s'; ps[1].style.opacity = '1';
+          await wait(320);
+          ps[2].style.opacity = '1';
+          await wait(160);
+        }
+      }
+    })();
+  }
+</script>
