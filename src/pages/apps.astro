@@ -12,32 +12,34 @@ const noorayaScreenshot = `${base}/images/nooraya-screenshot.png`;
   <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-16 sm:pt-20 pb-20">
     <!-- Header -->
     <div class="text-center space-y-4 mb-16">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-panel text-xs font-medium text-emerald-300 border border-emerald-500/30">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full nooraya-pill text-xs font-semibold text-[#FFE3A1] border border-white/15">
         <span>Software Portfolio</span>
       </div>
       <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
-        Apps Built with <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-indigo-400">Precision</span>.
+        Apps Built with <span class="gold-gradient-text">Precision</span>.
       </h1>
-      <p class="text-gray-400 text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
+      <p class="text-gray-300 text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
         Discover our released and upcoming mobile applications designed for mindful daily living and functional beauty.
       </p>
     </div>
 
     <!-- Flagship App: Nooraya Detailed Profile -->
-    <div class="glass-card rounded-3xl p-6 sm:p-10 lg:p-12 mb-16 border border-white/10 relative overflow-hidden">
+    <div class="nooraya-glass rounded-[38px] p-6 sm:p-12 lg:p-14 mb-16 border border-white/15 relative overflow-hidden">
       <!-- Glow ambient background -->
-      <div class="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute top-0 right-0 w-[450px] h-[450px] bg-[#FFD56B]/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
         <!-- Content -->
         <div class="lg:col-span-7 space-y-6">
           <div class="flex items-center gap-4">
-            <img src={noorayaLogo} alt="Nooraya App Icon" class="w-20 h-20 rounded-2xl shadow-2xl border border-white/15" />
+            <div class="w-20 h-20 rounded-[26px] nooraya-glass p-2 border border-white/20 shadow-2xl flex items-center justify-center">
+              <img src={noorayaLogo} alt="Nooraya App Icon" class="w-16 h-16 rounded-[20px]" />
+            </div>
             <div>
-              <div class="flex items-center gap-2">
+              <div class="flex items-center gap-2.5">
                 <h2 class="text-3xl font-extrabold text-white tracking-tight">Nooraya</h2>
-                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                  Active Release
+                <span class="px-3 py-0.5 rounded-full text-[10px] font-bold bg-[#FFD56B]/15 text-[#FFE3A1] border border-[#FFD56B]/30">
+                  Active Production
                 </span>
               </div>
               <p class="text-xs text-gray-400 mt-1 font-medium">Package: <code>com.nooraya.app</code> • Version 1.0.3</p>
@@ -50,30 +52,30 @@ const noorayaScreenshot = `${base}/images/nooraya-screenshot.png`;
 
           <!-- Specifications List -->
           <div class="space-y-3 pt-2">
-            <h3 class="text-xs font-bold uppercase tracking-wider text-cyan-400">Core Feature Capabilities</h3>
+            <h3 class="text-xs font-bold uppercase tracking-wider text-[#FFD56B]">Core Capabilities</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-gray-300">
-              <div class="flex items-center gap-2 glass-panel p-2.5 rounded-xl">
-                <span class="text-cyan-400">✔</span>
+              <div class="flex items-center gap-2.5 nooraya-pill p-3 rounded-2xl">
+                <span class="text-[#FFD56B]">✔</span>
                 <span>Full Quran with Audio Reciters</span>
               </div>
-              <div class="flex items-center gap-2 glass-panel p-2.5 rounded-xl">
-                <span class="text-cyan-400">✔</span>
+              <div class="flex items-center gap-2.5 nooraya-pill p-3 rounded-2xl">
+                <span class="text-[#FFD56B]">✔</span>
                 <span>Precise Location Prayer Timings</span>
               </div>
-              <div class="flex items-center gap-2 glass-panel p-2.5 rounded-xl">
-                <span class="text-cyan-400">✔</span>
+              <div class="flex items-center gap-2.5 nooraya-pill p-3 rounded-2xl">
+                <span class="text-[#FFD56B]">✔</span>
                 <span>Haptic Sensor Qibla Compass</span>
               </div>
-              <div class="flex items-center gap-2 glass-panel p-2.5 rounded-xl">
-                <span class="text-cyan-400">✔</span>
+              <div class="flex items-center gap-2.5 nooraya-pill p-3 rounded-2xl">
+                <span class="text-[#FFD56B]">✔</span>
                 <span>Sukoon Duas & Peaceful Audio</span>
               </div>
-              <div class="flex items-center gap-2 glass-panel p-2.5 rounded-xl">
-                <span class="text-cyan-400">✔</span>
+              <div class="flex items-center gap-2.5 nooraya-pill p-3 rounded-2xl">
+                <span class="text-[#FFD56B]">✔</span>
                 <span>1-Tap Sacred Ringtones & Adhans</span>
               </div>
-              <div class="flex items-center gap-2 glass-panel p-2.5 rounded-xl">
-                <span class="text-cyan-400">✔</span>
+              <div class="flex items-center gap-2.5 nooraya-pill p-3 rounded-2xl">
+                <span class="text-[#FFD56B]">✔</span>
                 <span>Global Portrait Lock & Zero Bloat</span>
               </div>
             </div>
@@ -85,14 +87,14 @@ const noorayaScreenshot = `${base}/images/nooraya-screenshot.png`;
               href="https://play.google.com/store/apps/details?id=com.nooraya.app"
               target="_blank"
               rel="noopener noreferrer"
-              class="glass-button-primary px-6 py-3.5 rounded-2xl text-sm font-semibold inline-flex items-center gap-2"
+              class="gold-liquid-btn px-7 py-3.5 rounded-full text-xs sm:text-sm font-bold inline-flex items-center gap-2.5"
             >
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M3.609 1.814L13.792 12 3.61 22.186c-.198-.124-.316-.341-.316-.583V2.397c0-.242.118-.459.315-.583zm11.37 11.37l2.42 2.42-12.012 6.864 9.592-9.284zm0-2.368L5.387 1.532l12.012 6.864-2.42 2.42zM16.166 12l2.844-2.844 3.738 2.136c.74.423.74 1.109 0 1.532l-3.738 2.136L16.166 12z"/>
               </svg>
               <span>Download on Google Play</span>
             </a>
-            <a href={`${base}/privacy`} class="px-5 py-3 rounded-2xl text-sm font-semibold glass-button-secondary">
+            <a href={`${base}/privacy`} class="px-6 py-3.5 rounded-full text-xs font-semibold glass-btn-secondary">
               Privacy Policy
             </a>
           </div>
@@ -100,11 +102,11 @@ const noorayaScreenshot = `${base}/images/nooraya-screenshot.png`;
 
         <!-- Phone Preview Mockup -->
         <div class="lg:col-span-5 flex justify-center">
-          <div class="w-[280px] sm:w-[320px] rounded-[36px] p-2.5 bg-gradient-to-b from-white/20 via-white/5 to-white/10 shadow-2xl border border-white/20 backdrop-blur-xl">
+          <div class="w-[280px] sm:w-[310px] rounded-[40px] p-2.5 bg-gradient-to-b from-white/25 via-white/8 to-white/12 shadow-[0_30px_70px_rgba(0,0,0,0.9)] border border-white/25 backdrop-blur-2xl">
             <img
               src={noorayaScreenshot}
               alt="Nooraya Interface"
-              class="w-full h-auto rounded-[28px] object-cover"
+              class="w-full h-auto rounded-[32px] object-cover"
             />
           </div>
         </div>
@@ -118,15 +120,15 @@ const noorayaScreenshot = `${base}/images/nooraya-screenshot.png`;
           <h3 class="text-xl font-bold text-white tracking-tight">In The Lab / Upcoming Pipeline</h3>
           <p class="text-xs text-gray-400 mt-0.5">Projects currently being designed by Shoptic Technologies engineers.</p>
         </div>
-        <span class="text-xs px-3 py-1 rounded-full glass-panel text-gray-400">Roadmap 2026</span>
+        <span class="text-xs px-3.5 py-1 rounded-full nooraya-pill text-gray-300 font-semibold">Roadmap 2026</span>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Upcoming 1 -->
-        <div class="glass-card rounded-2xl p-6 space-y-3 border border-white/10">
+        <div class="nooraya-glass rounded-[28px] p-7 space-y-3 border border-white/12">
           <div class="flex items-center justify-between">
             <div class="text-2xl">⚡</div>
-            <span class="text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
+            <span class="text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-[#FFD56B]/10 text-[#FFE3A1] border border-[#FFD56B]/20">
               In Architecture Phase
             </span>
           </div>
@@ -137,10 +139,10 @@ const noorayaScreenshot = `${base}/images/nooraya-screenshot.png`;
         </div>
 
         <!-- Upcoming 2 -->
-        <div class="glass-card rounded-2xl p-6 space-y-3 border border-white/10">
+        <div class="nooraya-glass rounded-[28px] p-7 space-y-3 border border-white/12">
           <div class="flex items-center justify-between">
             <div class="text-2xl">📊</div>
-            <span class="text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">
+            <span class="text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-[#34D399]/10 text-[#A7F3D0] border border-[#34D399]/20">
               Prototyping
             </span>
           </div>

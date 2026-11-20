@@ -2,147 +2,192 @@
 
 @layer base {
   :root {
-    --color-bg: #070A12;
-    --color-surface: rgba(255, 255, 255, 0.03);
-    --color-surface-hover: rgba(255, 255, 255, 0.06);
-    --color-border: rgba(255, 255, 255, 0.08);
-    --color-border-glow: rgba(6, 182, 212, 0.4);
-    --color-accent-cyan: #06B6D4;
-    --color-accent-emerald: #10B981;
-    --color-accent-indigo: #6366F1;
+    --bg-canvas: #0A0A0C;
+    --gold: #FFD56B;
+    --gold-soft: #FFE3A1;
+    --gold-deep: #E6A23C;
+    --mint: #34D399;
+    --cyan: #38BDF8;
   }
 
   html {
     scroll-behavior: smooth;
-    background-color: var(--color-bg);
-    color: #F3F4F6;
+    background-color: var(--bg-canvas);
+    color: #F8FAFC;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   }
 
   body {
     overflow-x: hidden;
     min-height: 100vh;
-    background-color: #070A12;
+    background-color: #0A0A0C;
+    background-image: 
+      radial-gradient(ellipse 80% 60% at 50% -20%, rgba(255, 213, 107, 0.07), transparent 70%),
+      radial-gradient(ellipse 60% 50% at 90% 40%, rgba(52, 211, 153, 0.05), transparent 60%),
+      radial-gradient(ellipse 60% 50% at 10% 70%, rgba(56, 189, 248, 0.05), transparent 60%);
   }
 
-  /* Custom Glass Scrollbar */
+  /* Sleek Glass Scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 7px;
   }
   ::-webkit-scrollbar-track {
-    background: #070A12;
+    background: #0A0A0C;
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.18);
     border-radius: 9999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 213, 107, 0.35);
   }
 }
 
-/* Liquid Glass Component Classes */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.035);
-  backdrop-filter: blur(20px) saturate(190%);
-  -webkit-backdrop-filter: blur(20px) saturate(190%);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
-}
-
-.glass-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6), inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.glass-card:hover {
-  transform: translateY(-4px);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
-  border-color: rgba(6, 182, 212, 0.35);
-  box-shadow: 0 25px 50px -12px rgba(6, 182, 212, 0.15), inset 0 1px 1px 0 rgba(255, 255, 255, 0.3);
-}
-
-.glass-nav {
-  background: rgba(9, 13, 24, 0.75);
-  backdrop-filter: blur(24px) saturate(200%);
-  -webkit-backdrop-filter: blur(24px) saturate(200%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 12px 32px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
-}
-
-.glass-button-primary {
-  background: linear-gradient(135deg, #06B6D4 0%, #10B981 100%);
-  color: #041018;
-  font-weight: 600;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 0 25px -4px rgba(6, 182, 212, 0.5), inset 0 1px 1px 0 rgba(255, 255, 255, 0.5);
-  transition: all 0.25s ease;
-}
-
-.glass-button-primary:hover {
-  box-shadow: 0 0 35px 2px rgba(16, 185, 129, 0.6), inset 0 1px 2px 0 rgba(255, 255, 255, 0.7);
-  transform: translateY(-1px) scale(1.02);
-}
-
-.glass-button-secondary {
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+/* Nooraya Authentic Liquid Glass Classes */
+.nooraya-glass {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 40%, rgba(18, 18, 22, 0.88) 100%);
+  backdrop-filter: blur(36px) saturate(200%);
+  -webkit-backdrop-filter: blur(36px) saturate(200%);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #E5E7EB;
+  box-shadow: 
+    inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.5),
+    0 24px 60px -12px rgba(0, 0, 0, 0.85);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nooraya-glass:hover {
+  border-color: rgba(255, 213, 107, 0.35);
+  box-shadow: 
+    inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.5),
+    0 32px 70px -15px rgba(255, 213, 107, 0.12),
+    0 24px 60px -12px rgba(0, 0, 0, 0.85);
+  transform: translateY(-3px);
+}
+
+/* Sky Prayer Card (from Nooraya's authentic prayer sky gradient) */
+.sky-glass-card {
+  background: linear-gradient(155deg, #1C243B 0%, #13192B 45%, #0D101C 100%);
+  backdrop-filter: blur(40px) saturate(210%);
+  -webkit-backdrop-filter: blur(40px) saturate(210%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.28),
+    inset 0 -1.5px 2px 0 rgba(0, 0, 0, 0.6),
+    0 30px 70px -15px rgba(0, 0, 0, 0.9);
+}
+
+/* Translucent Pill */
+.nooraya-pill {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
   transition: all 0.25s ease;
 }
 
-.glass-button-secondary:hover {
-  background: rgba(255, 255, 255, 0.08);
+.nooraya-pill:hover {
+  background: rgba(255, 255, 255, 0.09);
   border-color: rgba(255, 255, 255, 0.25);
   color: #FFFFFF;
-  transform: translateY(-1px);
 }
 
-.glass-input {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+/* Liquid Gold Primary Button */
+.gold-liquid-btn {
+  background: linear-gradient(135deg, #FFE3A1 0%, #FFD56B 45%, #E6A23C 100%);
+  color: #0A0A0C;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 
+    0 0 30px -4px rgba(255, 213, 107, 0.55),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.8);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gold-liquid-btn:hover {
+  box-shadow: 
+    0 0 45px 4px rgba(255, 213, 107, 0.75),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.95);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Secondary Frosted Button */
+.glass-btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #F8FAFC;
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.18);
+  transition: all 0.3s ease;
+}
+
+.glass-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.30);
+  transform: translateY(-2px);
+}
+
+/* Text Gradients */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFF5D6 0%, #FFD56B 45%, #E6A23C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.emerald-gradient-text {
+  background: linear-gradient(135deg, #D1FAE5 0%, #34D399 50%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Squircle Widget Box (like Nooraya 4 main buttons) */
+.nooraya-widget-box {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  box-shadow: 
+    inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.22),
+    0 12px 28px -8px rgba(0, 0, 0, 0.6);
+  border-radius: 22px;
+  transition: all 0.3s ease;
+}
+
+.nooraya-widget-box:hover {
+  transform: translateY(-3px) scale(1.03);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.03) 100%);
+}
+
+/* Glass Form Inputs */
+.nooraya-input {
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.11);
   color: #FFFFFF;
+  box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   outline: none;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 }
 
-.glass-input:focus {
-  border-color: #06B6D4;
-  box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.2), inset 0 1px 1px 0 rgba(255, 255, 255, 0.1);
+.nooraya-input:focus {
+  border-color: #FFD56B;
+  box-shadow: 0 0 0 2px rgba(255, 213, 107, 0.25), inset 0 1px 2px 0 rgba(0, 0, 0, 0.3);
 }
 
-/* Fluid Animated Background Orbs */
-@keyframes floatOrb1 {
-  0%, 100% { transform: translate(0px, 0px) scale(1); }
-  50% { transform: translate(60px, -40px) scale(1.15); }
+/* Ambient Floating Glow Animations */
+@keyframes atmosphericDrift {
+  0%, 100% { transform: translate(0px, 0px) scale(1); opacity: 0.6; }
+  50% { transform: translate(40px, -30px) scale(1.15); opacity: 0.9; }
 }
 
-@keyframes floatOrb2 {
-  0%, 100% { transform: translate(0px, 0px) scale(1); }
-  50% { transform: translate(-50px, 50px) scale(1.1); }
+.glow-orb-gold {
+  animation: atmosphericDrift 16s ease-in-out infinite;
 }
 
-@keyframes floatOrb3 {
-  0%, 100% { transform: translate(0px, 0px) scale(1); }
-  50% { transform: translate(40px, 40px) scale(0.95); }
-}
-
-.aurora-orb-1 {
-  animation: floatOrb1 18s ease-in-out infinite;
-}
-
-.aurora-orb-2 {
-  animation: floatOrb2 22s ease-in-out infinite;
-}
-
-.aurora-orb-3 {
-  animation: floatOrb3 20s ease-in-out infinite;
+.glow-orb-indigo {
+  animation: atmosphericDrift 22s ease-in-out infinite reverse;
 }

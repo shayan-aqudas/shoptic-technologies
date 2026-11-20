@@ -10,23 +10,23 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   <div class="max-w-4xl mx-auto px-4 sm:px-6 pt-16 sm:pt-20 pb-20">
     <!-- Header -->
     <div class="text-center space-y-4 mb-16">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-panel text-xs font-medium text-cyan-300 border border-cyan-500/30">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full nooraya-pill text-xs font-semibold text-[#FFE3A1] border border-white/15">
         <span>About Shoptic Technologies</span>
       </div>
       <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
-        Crafting Software That <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">Respects</span> the User.
+        Crafting Software That <span class="gold-gradient-text">Respects</span> the User.
       </h1>
-      <p class="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-        We are an independent software development studio focusing on modern mobile experiences, utility apps, and digital craftsmanship.
+      <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+        We are an independent software development studio focused on modern mobile experiences, utility apps, and digital craftsmanship.
       </p>
     </div>
 
     <!-- Main Content Cards -->
     <div class="space-y-8">
       <!-- Story -->
-      <div class="glass-card rounded-3xl p-8 sm:p-10 space-y-4">
+      <div class="nooraya-glass rounded-[32px] p-8 sm:p-12 space-y-4">
         <h2 class="text-2xl font-bold text-white tracking-tight flex items-center gap-3">
-          <span class="text-cyan-400">01.</span> Our Mission
+          <span class="text-[#FFD56B]">01.</span> Our Mission
         </h2>
         <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
           At Shoptic Technologies, our foundational premise is straightforward: digital products should be fast, aesthetically gratifying, and strictly respectful of user attention and privacy.
@@ -37,9 +37,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       </div>
 
       <!-- Flagship Product -->
-      <div class="glass-card rounded-3xl p-8 sm:p-10 space-y-4">
+      <div class="nooraya-glass rounded-[32px] p-8 sm:p-12 space-y-4">
         <h2 class="text-2xl font-bold text-white tracking-tight flex items-center gap-3">
-          <span class="text-emerald-400">02.</span> The Nooraya Journey
+          <span class="text-[#34D399]">02.</span> The Nooraya Journey
         </h2>
         <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
           Our flagship release, <strong>Nooraya</strong>, was conceptualized to redefine how Muslims across the globe connect with daily prayer, the Holy Quran, and authentic Islamic literature.
@@ -47,42 +47,42 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
           By combining a bespoke liquid glass visual interface with high-accuracy astronomical algorithms, offline-capable audio caching, and zero invasive trackers, Nooraya stands as an embodiment of our studio's technical dedication.
         </p>
-        <div class="pt-2">
-          <a href={`${base}/apps`} class="text-sm font-semibold text-cyan-400 hover:text-cyan-300 inline-flex items-center gap-1.5">
+        <div class="pt-3">
+          <a href={`${base}/apps`} class="text-sm font-bold text-[#FFD56B] hover:text-[#FFE3A1] inline-flex items-center gap-2">
             <span>Explore Nooraya Specifications</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
             </svg>
           </a>
         </div>
       </div>
 
       <!-- Engineering Core Values -->
-      <div class="glass-card rounded-3xl p-8 sm:p-10 space-y-6">
+      <div class="nooraya-glass rounded-[32px] p-8 sm:p-12 space-y-6">
         <h2 class="text-2xl font-bold text-white tracking-tight flex items-center gap-3">
-          <span class="text-indigo-400">03.</span> Engineering Principles
+          <span class="text-[#38BDF8]">03.</span> Engineering Principles
         </h2>
         
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div class="glass-panel rounded-2xl p-5 space-y-2">
+          <div class="nooraya-pill rounded-2xl p-5 space-y-2">
             <h3 class="text-sm font-bold text-white">Sub-Millisecond Rendering</h3>
             <p class="text-xs text-gray-400 leading-relaxed">
               Every animation and layout is profiling-verified to sustain 60 FPS transitions without frame drops or lag.
             </p>
           </div>
-          <div class="glass-panel rounded-2xl p-5 space-y-2">
+          <div class="nooraya-pill rounded-2xl p-5 space-y-2">
             <h3 class="text-sm font-bold text-white">Privacy by Default</h3>
             <p class="text-xs text-gray-400 leading-relaxed">
               We collect zero personally identifiable information. Sensor telemetry and calculations occur on the user's hardware.
             </p>
           </div>
-          <div class="glass-panel rounded-2xl p-5 space-y-2">
+          <div class="nooraya-pill rounded-2xl p-5 space-y-2">
             <h3 class="text-sm font-bold text-white">Tactile Liquid Glass</h3>
             <p class="text-xs text-gray-400 leading-relaxed">
               Subtle translucency, specular border reflections, and ambient depth establish an elevated sensory experience.
             </p>
           </div>
-          <div class="glass-panel rounded-2xl p-5 space-y-2">
+          <div class="nooraya-pill rounded-2xl p-5 space-y-2">
             <h3 class="text-sm font-bold text-white">Active Stewardship</h3>
             <p class="text-xs text-gray-400 leading-relaxed">
               Continuous QA, timely Android platform updates, and immediate community support resolution.
@@ -92,16 +92,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       </div>
 
       <!-- Studio Tech Stack -->
-      <div class="glass-card rounded-3xl p-8 sm:p-10 space-y-4">
+      <div class="nooraya-glass rounded-[32px] p-8 sm:p-12 space-y-4">
         <h2 class="text-2xl font-bold text-white tracking-tight flex items-center gap-3">
-          <span class="text-amber-400">04.</span> Technology Ecosystem
+          <span class="text-[#FFE3A1]">04.</span> Technology Ecosystem
         </h2>
         <p class="text-gray-300 text-sm leading-relaxed">
           Our projects leverage robust, modern technologies built for scalability and stability:
         </p>
         <div class="flex flex-wrap gap-2.5 pt-2">
           {['Flutter & Dart', 'Kotlin / Android Native', 'Astro SSG', 'Tailwind CSS', 'Firebase Cloud Platform', 'SQLite Architecture', 'Cloudflare Edge CDN'].map((tech) => (
-            <span class="px-3.5 py-1.5 rounded-xl glass-panel text-xs font-medium text-gray-200 border border-white/10">
+            <span class="px-4 py-2 rounded-full nooraya-pill text-xs font-semibold text-gray-200">
               {tech}
             </span>
           ))}

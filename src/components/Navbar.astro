@@ -5,39 +5,41 @@ const currentPath = Astro.url.pathname;
 const navItems = [
   { name: 'Home', href: `${base}/` },
   { name: 'About', href: `${base}/about` },
-  { name: 'Apps', href: `${base}/apps` },
+  { name: 'Apps & Products', href: `${base}/apps` },
   { name: 'Privacy Policy', href: `${base}/privacy` },
   { name: 'Terms', href: `${base}/terms` },
-  { name: 'Contact', href: `${base}/contact` },
+  { name: 'Support', href: `${base}/contact` },
 ];
 
 const logoSrc = `${base}/images/shoptic-logo.svg`;
 ---
 
-<header class="sticky top-4 z-50 max-w-6xl mx-auto px-4 sm:px-6 transition-all duration-300">
-  <nav class="glass-nav rounded-2xl px-5 py-3.5 flex items-center justify-between">
+<header class="sticky top-5 z-50 max-w-5xl mx-auto px-4 sm:px-6 transition-all duration-300">
+  <nav class="nooraya-glass rounded-full px-5 sm:px-6 py-3 flex items-center justify-between border border-white/15">
     <!-- Brand Logo -->
     <a href={`${base}/`} class="flex items-center gap-3 group">
-      <img src={logoSrc} alt="Shoptic Technologies Logo" class="w-9 h-9 rounded-xl transition-transform duration-300 group-hover:scale-105" />
+      <div class="relative flex items-center justify-center">
+        <div class="absolute inset-0 bg-[#FFD56B]/25 rounded-xl blur-md group-hover:scale-125 transition-transform duration-300"></div>
+        <img src={logoSrc} alt="Shoptic Technologies" class="w-8 h-8 rounded-xl relative z-10 transition-transform duration-300 group-hover:scale-105" />
+      </div>
       <div class="flex flex-col">
-        <span class="font-bold text-base sm:text-lg tracking-tight text-white group-hover:text-cyan-400 transition-colors">
-          Shoptic <span class="text-cyan-400 font-light">Technologies</span>
+        <span class="font-extrabold text-sm sm:text-base tracking-tight text-white group-hover:text-[#FFE3A1] transition-colors">
+          Shoptic <span class="gold-gradient-text font-medium">Technologies</span>
         </span>
-        <span class="text-[10px] tracking-wider uppercase text-gray-400 font-medium hidden sm:block">Digital Software Studio</span>
       </div>
     </a>
 
     <!-- Desktop Navigation Links -->
-    <div class="hidden md:flex items-center gap-1 lg:gap-2">
+    <div class="hidden md:flex items-center gap-1">
       {navItems.map((item) => {
         const isHome = item.href === `${base}/` || item.href === base;
         const isActive = isHome ? (currentPath === `${base}/` || currentPath === base) : currentPath.startsWith(item.href);
         return (
           <a
             href={item.href}
-            class={`px-3.5 py-1.5 rounded-xl text-sm font-medium transition-all duration-200 ${
+            class={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 ${
               isActive
-                ? 'bg-white/10 text-cyan-300 shadow-inner border border-white/10'
+                ? 'bg-white/12 text-[#FFD56B] shadow-[inset_0_1px_1px_rgba(255,255,255,0.25)] border border-white/15'
                 : 'text-gray-300 hover:text-white hover:bg-white/5'
             }`}
           >
@@ -48,14 +50,16 @@ const logoSrc = `${base}/images/shoptic-logo.svg`;
     </div>
 
     <!-- Right Action & Mobile Toggle -->
-    <div class="flex items-center gap-3">
+    <div class="flex items-center gap-2.5">
       <a
-        href={`${base}/contact`}
-        class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold glass-button-primary cursor-pointer"
+        href="https://play.google.com/store/apps/details?id=com.nooraya.app"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold gold-liquid-btn cursor-pointer"
       >
-        <span>Get in Touch</span>
-        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+        <span>Get Nooraya</span>
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M3.609 1.814L13.792 12 3.61 22.186c-.198-.124-.316-.341-.316-.583V2.397c0-.242.118-.459.315-.583zm11.37 11.37l2.42 2.42-12.012 6.864 9.592-9.284zm0-2.368L5.387 1.532l12.012 6.864-2.42 2.42zM16.166 12l2.844-2.844 3.738 2.136c.74.423.74 1.109 0 1.532l-3.738 2.136L16.166 12z"/>
         </svg>
       </a>
 
@@ -63,30 +67,30 @@ const logoSrc = `${base}/images/shoptic-logo.svg`;
       <button
         id="mobile-menu-btn"
         type="button"
-        class="md:hidden p-2 rounded-xl text-gray-300 hover:text-white hover:bg-white/10 focus:outline-none"
+        class="md:hidden p-2 rounded-full text-gray-300 hover:text-white hover:bg-white/10 focus:outline-none"
         aria-label="Toggle menu"
       >
-        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        <svg id="menu-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
-        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        <svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
         </svg>
       </button>
     </div>
   </nav>
 
   <!-- Mobile Dropdown Menu -->
-  <div id="mobile-menu" class="hidden md:hidden mt-2 glass-panel rounded-2xl p-4 shadow-2xl space-y-2 border border-white/10">
+  <div id="mobile-menu" class="hidden md:hidden mt-3 nooraya-glass rounded-3xl p-5 shadow-2xl space-y-2 border border-white/15">
     {navItems.map((item) => {
       const isHome = item.href === `${base}/` || item.href === base;
       const isActive = isHome ? (currentPath === `${base}/` || currentPath === base) : currentPath.startsWith(item.href);
       return (
         <a
           href={item.href}
-          class={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
+          class={`block px-4 py-2.5 rounded-2xl text-xs font-semibold tracking-wide transition-all ${
             isActive
-              ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30'
+              ? 'bg-[#FFD56B]/15 text-[#FFE3A1] border border-[#FFD56B]/30'
               : 'text-gray-300 hover:text-white hover:bg-white/5'
           }`}
         >
@@ -94,12 +98,14 @@ const logoSrc = `${base}/images/shoptic-logo.svg`;
         </a>
       );
     })}
-    <div class="pt-2 border-t border-white/10">
+    <div class="pt-3 border-t border-white/10">
       <a
-        href={`${base}/contact`}
-        class="block w-full text-center px-4 py-2.5 rounded-xl text-sm font-semibold glass-button-primary"
+        href="https://play.google.com/store/apps/details?id=com.nooraya.app"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="block w-full text-center py-3 rounded-full text-xs font-bold gold-liquid-btn"
       >
-        Get in Touch
+        Get Nooraya on Google Play
       </a>
     </div>
   </div>

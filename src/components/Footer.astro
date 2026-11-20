@@ -4,49 +4,51 @@ const currentYear = new Date().getFullYear();
 const logoSrc = `${base}/images/shoptic-logo.svg`;
 ---
 
-<footer class="mt-28 border-t border-white/10 relative overflow-hidden bg-black/40 backdrop-blur-xl">
-  <!-- Subtle top glow line -->
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent"></div>
+<footer class="mt-32 border-t border-white/10 relative overflow-hidden bg-[#0A0A0C]/80 backdrop-blur-2xl">
+  <!-- Specular Gold Filament Line -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-4/5 max-w-4xl h-[1.5px] bg-gradient-to-r from-transparent via-[#FFD56B]/60 to-transparent"></div>
 
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-14">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
-      <!-- Col 1: Brand & Bio -->
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+      <!-- Col 1: Brand & Mission -->
       <div class="md:col-span-2 space-y-4">
         <div class="flex items-center gap-3">
-          <img src={logoSrc} alt="Shoptic Technologies Logo" class="w-8 h-8 rounded-lg" />
-          <span class="font-bold text-lg text-white tracking-tight">
-            Shoptic <span class="text-cyan-400 font-light">Technologies</span>
+          <div class="w-9 h-9 rounded-xl nooraya-glass flex items-center justify-center border border-white/20">
+            <img src={logoSrc} alt="Shoptic Technologies Logo" class="w-6 h-6" />
+          </div>
+          <span class="font-extrabold text-lg text-white tracking-tight">
+            Shoptic <span class="gold-gradient-text">Technologies</span>
           </span>
         </div>
         <p class="text-gray-400 text-sm leading-relaxed max-w-sm">
-          Shoptic Technologies is a modern digital engineering & software studio crafting intuitive, privacy-first mobile apps, utilities, and intelligent digital products.
+          A dedicated mobile software studio engineering mindful digital experiences with an authentic iOS-grade liquid glass design language.
         </p>
-        <div class="flex items-center gap-2 text-xs text-gray-400 pt-1">
-          <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>Official Developer Studio of <strong>Nooraya</strong></span>
+        <div class="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full nooraya-pill text-xs text-gray-300">
+          <span class="w-2 h-2 rounded-full bg-[#34D399] animate-pulse"></span>
+          <span>Official Developer of <strong>Nooraya</strong></span>
         </div>
       </div>
 
       <!-- Col 2: Navigation -->
       <div class="space-y-3">
-        <h4 class="text-xs uppercase tracking-wider font-semibold text-gray-300">Company</h4>
-        <ul class="space-y-2 text-sm">
-          <li><a href={`${base}/`} class="text-gray-400 hover:text-cyan-400 transition-colors">Home</a></li>
-          <li><a href={`${base}/about`} class="text-gray-400 hover:text-cyan-400 transition-colors">About Us</a></li>
-          <li><a href={`${base}/apps`} class="text-gray-400 hover:text-cyan-400 transition-colors">Products & Apps</a></li>
-          <li><a href={`${base}/contact`} class="text-gray-400 hover:text-cyan-400 transition-colors">Contact & Support</a></li>
+        <h4 class="text-xs uppercase tracking-widest font-bold text-[#FFD56B]">Ecosystem</h4>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href={`${base}/`} class="text-gray-400 hover:text-[#FFE3A1] transition-colors">Home Studio</a></li>
+          <li><a href={`${base}/about`} class="text-gray-400 hover:text-[#FFE3A1] transition-colors">About Our Craft</a></li>
+          <li><a href={`${base}/apps`} class="text-gray-400 hover:text-[#FFE3A1] transition-colors">Nooraya App</a></li>
+          <li><a href={`${base}/contact`} class="text-gray-400 hover:text-[#FFE3A1] transition-colors">Help & Feedback</a></li>
         </ul>
       </div>
 
-      <!-- Col 3: Legal & Compliance -->
+      <!-- Col 3: Compliance & Legal -->
       <div class="space-y-3">
-        <h4 class="text-xs uppercase tracking-wider font-semibold text-gray-300">Legal & Support</h4>
-        <ul class="space-y-2 text-sm">
-          <li><a href={`${base}/privacy`} class="text-gray-400 hover:text-cyan-400 transition-colors">Privacy Policy</a></li>
-          <li><a href={`${base}/terms`} class="text-gray-400 hover:text-cyan-400 transition-colors">Terms of Service</a></li>
+        <h4 class="text-xs uppercase tracking-widest font-bold text-[#FFD56B]">Compliance</h4>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href={`${base}/privacy`} class="text-gray-400 hover:text-[#FFE3A1] transition-colors">Privacy Policy (Play Store)</a></li>
+          <li><a href={`${base}/terms`} class="text-gray-400 hover:text-[#FFE3A1] transition-colors">Terms of Service</a></li>
           <li class="pt-2 text-xs text-gray-400">
-            Developer Support:<br/>
-            <a href="mailto:support@shoptictechnologies.com" class="text-cyan-400 hover:underline">
+            Developer Direct Contact:<br/>
+            <a href="mailto:support@shoptictechnologies.com" class="text-[#FFD56B] hover:underline font-medium">
               support@shoptictechnologies.com
             </a>
           </li>
@@ -54,11 +56,12 @@ const logoSrc = `${base}/images/shoptic-logo.svg`;
       </div>
     </div>
 
-    <!-- Bottom copyright -->
-    <div class="mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+    <!-- Bottom Attribution -->
+    <div class="mt-14 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
       <p>© {currentYear} Shoptic Technologies. All rights reserved.</p>
-      <p class="flex items-center gap-1.5 text-gray-400">
-        Engineered with precision & privacy in mind.
+      <p class="text-gray-400 flex items-center gap-2">
+        <span>Handcrafted with Liquid Glass Architecture</span>
+        <span class="text-[#FFD56B]">✦</span>
       </p>
     </div>
   </div>
