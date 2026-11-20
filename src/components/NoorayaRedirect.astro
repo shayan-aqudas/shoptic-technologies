@@ -1,0 +1,315 @@
+---
+// Nooraya landing and Play Store smart-redirect page, in the Shoptic look
+// (aurora background, liquid glass, Outfit + JetBrains Mono, orange accents).
+// Used by /nooraya and /apps/nooraya, which differ only in their share URL.
+import '../styles/global.css';
+
+interface Props {
+  /** The page's own address, for social previews. */
+  url: string;
+}
+
+const { url } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const PLAY = 'https://play.google.com/store/apps/details?id=com.nooraya.app';
+const features = ['50+ Top Reciters', 'Islamic Ringtones', 'Accurate Azan', '100% Free'];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Nooraya: Sacred Quran, Azan &amp; Ringtones</title>
+
+    <!-- Meta Tags for SEO & Social Previews (Meta Ads & WhatsApp) -->
+    <meta name="description" content="Download Nooraya on Google Play Store. Listen to soulful Quran recitations, soothing azans, and beautiful Islamic ringtones." />
+    <meta property="og:title" content="Nooraya — Sacred Quran &amp; Islamic Ringtones" />
+    <meta property="og:description" content="Download free on Google Play Store. Ad-free audio, offline recitations, and soulful ringtones for your phone." />
+    <meta property="og:image" content="https://shoptic.co.in/nooraya/icon.png" />
+    <meta property="og:url" content={url} />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0A0B0E" />
+    <link rel="icon" type="image/png" href={`${base}/nooraya/icon.png`} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&family=Amiri:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PJN6FC8R"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    </script>
+  </head>
+  <body>
+    <!-- Same living background as the rest of shoptic.co.in -->
+    <div class="aurora" aria-hidden="true">
+      <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="blob b4"></div>
+    </div>
+    <div class="dots" aria-hidden="true"></div>
+
+    <div class="page">
+      <a href="https://shoptic.co.in/" class="glass glass-blur brand" aria-label="Shoptic Technologies">
+        <img class="brand-icon" src={`${base}/images/shoptic-icon.svg`} alt="" width="34" height="34" />
+        <img class="brand-word" src={`${base}/images/shoptic-wordmark.svg`} alt="Shoptic Technologies" width="112" height="24" />
+      </a>
+
+      <main class="glass panel">
+        <div class="glow" aria-hidden="true"></div>
+
+        <div class="icon-wrap">
+          <div class="glass app-frame">
+            <img src={`${base}/nooraya/icon.png`} alt="Nooraya App Icon" width="104" height="104" />
+          </div>
+          <div class="badge-verified" aria-hidden="true">✓</div>
+        </div>
+
+        <p class="eyebrow"><span class="sl">//</span> com.nooraya.app</p>
+        <h1 class="title text-silver">Nooraya</h1>
+        <span class="arabic-name text-ember">نورایا — القرآن والأذكار</span>
+        <p class="tagline">Soulful Quran Recitations, Accurate Azan &amp; Sacred Islamic Ringtones</p>
+
+        <div class="chip rating">
+          <span class="star">★</span><strong>4.9</strong><span>• Verified by Google Play Protect</span>
+        </div>
+
+        <div class="status warm redirect-status" id="redirectStatus">
+          <span class="spinner" aria-hidden="true"></span>
+          <span>Opening Google Play Store...</span>
+        </div>
+
+        <a href={PLAY} id="playBtn" class="btn btn-primary play-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a1.597 1.597 0 0 1-.61-.954V2.768c0-.38.163-.733.61-.954zm11.235 11.236L18.7 15.26l-13.067 7.545 9.21-9.755zm0-2.1L5.633 1.196 18.7 8.74l-3.856 2.21zm1.455.842l2.946-1.692c.797-.458.797-1.206 0-1.664l-2.946-1.693-1.077 1.693 1.077 1.693z"></path></svg>
+          Download on Google Play
+        </a>
+        <p class="manual-hint">If the app doesn't open automatically, tap the button above.</p>
+
+        <div class="features">
+          {features.map((f) => <span class="chip"><span class="dot"></span>{f}</span>)}
+        </div>
+      </main>
+
+      <footer class="foot">
+        <p>© 2026 Nooraya • A product of <a href="https://shoptic.co.in/" class="foot-brand">Shoptic Technologies</a></p>
+        <p class="foot-links">
+          <a href="https://shayan-aqudas.github.io/nooraya-policy/">Privacy Policy</a>
+          <span>•</span>
+          <a href="https://shayan-aqudas.github.io/nooraya-policy/terms.html">Terms of Service</a>
+        </p>
+      </footer>
+    </div>
+
+    <!-- Smart Redirect Script for Meta Ads & Instagram In-App Browser -->
+    <script is:inline>
+      const playStoreWebUrl = 'https://play.google.com/store/apps/details?id=com.nooraya.app';
+      const playStoreAppUri = 'market://details?id=com.nooraya.app';
+
+      function launchPlayStore() {
+        const isAndroid = /Android/i.test(navigator.userAgent);
+
+        if (isAndroid) {
+          // Try opening native Google Play Store app directly
+          window.location.href = playStoreAppUri;
+
+          // Fallback to web URL in case market:// doesn't trigger
+          setTimeout(function() {
+            window.location.href = playStoreWebUrl;
+          }, 1000);
+        } else {
+          // Non-Android or desktop: redirect directly to Play Store web page
+          window.location.href = playStoreWebUrl;
+        }
+      }
+
+      // Auto trigger redirect on load after 1000ms for smooth visual transition
+      window.addEventListener('load', function() {
+        setTimeout(launchPlayStore, 1000);
+      });
+
+      // Click handler for manual tap
+      document.getElementById('playBtn').addEventListener('click', function(e) {
+        const isAndroid = /Android/i.test(navigator.userAgent);
+        if (isAndroid) {
+          e.preventDefault();
+          window.location.href = playStoreAppUri;
+          setTimeout(function() {
+            window.location.href = playStoreWebUrl;
+          }, 1000);
+        }
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  .page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    padding: 28px 16px 24px;
+  }
+
+  /* Shoptic logo, as in the site's navigation pill */
+  .brand {
+    --r: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    height: 54px;
+    padding: 0 18px 0 12px;
+    /* Quick, like the old page: the redirect comes 1 s after load, and the
+       card should be fully in view well before that. */
+    animation: rise 0.6s var(--ease) both;
+  }
+  .brand-icon { width: 34px; height: 34px; filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.45)); }
+  .brand-word { height: 24px; width: auto; }
+
+  .panel {
+    --r: 34px;
+    width: 100%;
+    max-width: 440px;
+    padding: 38px 26px 30px;
+    text-align: center;
+    overflow: hidden;
+    animation: rise 0.6s var(--ease) both;
+    animation-delay: 60ms;
+  }
+  .panel .glow {
+    position: absolute;
+    z-index: 0;
+    width: 420px;
+    height: 420px;
+    left: 50%;
+    top: -230px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 106, 26, 0.3), transparent 65%);
+    pointer-events: none;
+  }
+
+  .icon-wrap { width: 104px; height: 104px; margin: 0 auto 22px; }
+  .app-frame {
+    --r: 28px;
+    width: 104px;
+    height: 104px;
+    padding: 7px;
+    display: grid;
+    place-items: center;
+  }
+  .app-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 22px; }
+  .badge-verified {
+    position: absolute;
+    right: -6px;
+    bottom: -6px;
+    z-index: 2;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(180deg, var(--orange-hi), var(--orange-lo));
+    box-shadow: 0 0 0 2.5px var(--bg), 0 6px 16px rgba(255, 106, 26, 0.55);
+  }
+
+  .title {
+    margin-top: 0.7rem;
+    font-size: 2.6rem;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+  }
+  .arabic-name {
+    display: block;
+    margin-top: 0.45rem;
+    font-family: 'Amiri', serif;
+    font-size: 21px;
+    line-height: 1.5;
+  }
+  .tagline {
+    margin-top: 0.7rem;
+    padding: 0 6px;
+    color: var(--dim);
+    font-weight: 300;
+    font-size: 15.5px;
+    line-height: 1.6;
+  }
+
+  .rating {
+    margin-top: 1.4rem;
+    color: var(--text);
+    /* On a very narrow phone it breaks between its parts, not mid-phrase. */
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 2px;
+  }
+  .rating > span:last-child { white-space: nowrap; }
+  .rating strong { font-weight: 500; }
+  .star { color: var(--orange-hi); }
+
+  .redirect-status { margin-top: 1.4rem; font-size: 12.5px; }
+  /* the spinner stands in for the status dot */
+  .redirect-status::before { display: none; }
+  .spinner {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 178, 122, 0.25);
+    border-top-color: #ffb27a;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .play-btn { width: 100%; height: 56px; margin-top: 1.1rem; font-size: 16px; }
+  .play-btn svg { width: 22px; height: 22px; }
+  .manual-hint {
+    margin-top: 0.9rem;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: var(--faint);
+  }
+
+  .features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.45rem;
+    margin-top: 1.6rem;
+    padding-top: 1.3rem;
+    border-top: 1px solid var(--line);
+  }
+  .features .chip { font-size: 11.5px; padding: 0.38rem 0.75rem; }
+
+  .foot {
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--faint);
+    animation: rise 0.6s var(--ease) both;
+    animation-delay: 120ms;
+  }
+  .foot a { color: var(--dim); transition: color 0.2s; }
+  .foot a:hover { color: #fff; }
+  .foot .foot-brand { color: var(--orange-hi); }
+  .foot-links { margin-top: 0.35rem; display: flex; justify-content: center; gap: 0.5rem; }
+
+  @media (max-width: 420px) {
+    .panel { padding: 34px 20px 28px; }
+    .rating { font-size: 11.5px; padding: 0.4rem 0.75rem; }
+  }
+  @media (max-width: 380px) {
+    .panel { padding: 32px 16px 26px; }
+    .title { font-size: 2.2rem; }
+  }
+</style>
