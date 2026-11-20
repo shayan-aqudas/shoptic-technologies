@@ -1,5 +1,7 @@
 ---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const currentYear = new Date().getFullYear();
+const logoSrc = `${base}/images/shoptic-logo.svg`;
 ---
 
 <footer class="mt-28 border-t border-white/10 relative overflow-hidden bg-black/40 backdrop-blur-xl">
@@ -11,7 +13,7 @@ const currentYear = new Date().getFullYear();
       <!-- Col 1: Brand & Bio -->
       <div class="md:col-span-2 space-y-4">
         <div class="flex items-center gap-3">
-          <img src="/images/shoptic-logo.svg" alt="Shoptic Technologies Logo" class="w-8 h-8 rounded-lg" />
+          <img src={logoSrc} alt="Shoptic Technologies Logo" class="w-8 h-8 rounded-lg" />
           <span class="font-bold text-lg text-white tracking-tight">
             Shoptic <span class="text-cyan-400 font-light">Technologies</span>
           </span>
@@ -29,10 +31,10 @@ const currentYear = new Date().getFullYear();
       <div class="space-y-3">
         <h4 class="text-xs uppercase tracking-wider font-semibold text-gray-300">Company</h4>
         <ul class="space-y-2 text-sm">
-          <li><a href="/" class="text-gray-400 hover:text-cyan-400 transition-colors">Home</a></li>
-          <li><a href="/about" class="text-gray-400 hover:text-cyan-400 transition-colors">About Us</a></li>
-          <li><a href="/apps" class="text-gray-400 hover:text-cyan-400 transition-colors">Products & Apps</a></li>
-          <li><a href="/contact" class="text-gray-400 hover:text-cyan-400 transition-colors">Contact & Support</a></li>
+          <li><a href={`${base}/`} class="text-gray-400 hover:text-cyan-400 transition-colors">Home</a></li>
+          <li><a href={`${base}/about`} class="text-gray-400 hover:text-cyan-400 transition-colors">About Us</a></li>
+          <li><a href={`${base}/apps`} class="text-gray-400 hover:text-cyan-400 transition-colors">Products & Apps</a></li>
+          <li><a href={`${base}/contact`} class="text-gray-400 hover:text-cyan-400 transition-colors">Contact & Support</a></li>
         </ul>
       </div>
 
@@ -40,8 +42,8 @@ const currentYear = new Date().getFullYear();
       <div class="space-y-3">
         <h4 class="text-xs uppercase tracking-wider font-semibold text-gray-300">Legal & Support</h4>
         <ul class="space-y-2 text-sm">
-          <li><a href="/privacy" class="text-gray-400 hover:text-cyan-400 transition-colors">Privacy Policy</a></li>
-          <li><a href="/terms" class="text-gray-400 hover:text-cyan-400 transition-colors">Terms of Service</a></li>
+          <li><a href={`${base}/privacy`} class="text-gray-400 hover:text-cyan-400 transition-colors">Privacy Policy</a></li>
+          <li><a href={`${base}/terms`} class="text-gray-400 hover:text-cyan-400 transition-colors">Terms of Service</a></li>
           <li class="pt-2 text-xs text-gray-400">
             Developer Support:<br/>
             <a href="mailto:support@shoptictechnologies.com" class="text-cyan-400 hover:underline">
