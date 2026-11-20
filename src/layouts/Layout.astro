@@ -54,7 +54,7 @@ const ogImage = new URL(`${base}/images/og-image.png`, site);
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -63,7 +63,6 @@ const ogImage = new URL(`${base}/images/og-image.png`, site);
       <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="blob b4"></div>
     </div>
     <div class="dots" aria-hidden="true"></div>
-    <div class="grain" aria-hidden="true"></div>
 
     <Navbar />
     <main>
@@ -73,14 +72,21 @@ const ogImage = new URL(`${base}/images/og-image.png`, site);
 
     <script>
       // Specular highlight follows the pointer across glass surfaces.
+      // One update per frame, desktop pointers only.
       const finePointer = window.matchMedia('(pointer: fine)').matches;
-      if (finePointer) {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (finePointer && !reduceMotion) {
+        let pending: PointerEvent | null = null;
         document.addEventListener('pointermove', (e) => {
-          const el = (e.target as HTMLElement | null)?.closest?.('.glass') as HTMLElement | null;
-          if (!el) return;
-          const r = el.getBoundingClientRect();
-          el.style.setProperty('--mx', `${e.clientX - r.left}px`);
-          el.style.setProperty('--my', `${e.clientY - r.top}px`);
+          if (!pending) requestAnimationFrame(() => {
+            const ev = pending; pending = null;
+            const el = (ev?.target as HTMLElement | null)?.closest?.('.glass') as HTMLElement | null;
+            if (!ev || !el) return;
+            const r = el.getBoundingClientRect();
+            el.style.setProperty('--mx', `${ev.clientX - r.left}px`);
+            el.style.setProperty('--my', `${ev.clientY - r.top}px`);
+          });
+          pending = e;
         }, { passive: true });
       }
 

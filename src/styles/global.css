@@ -29,7 +29,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
-body { min-height: 100vh; overflow-x: hidden; }
+body { min-height: 100vh; overflow-x: clip; }
 ::selection { background: rgba(255, 106, 26, 0.38); color: #fff; }
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
@@ -56,20 +56,20 @@ img { max-width: 100%; display: block; }
   mask-image: radial-gradient(ellipse at 50% 20%, #000 25%, transparent 78%);
   -webkit-mask-image: radial-gradient(ellipse at 50% 20%, #000 25%, transparent 78%);
 }
-.grain {
-  position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.06; mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+@media (max-width: 768px) {
+  .aurora .blob { animation: none; }
 }
 
 /* ============ Liquid glass ============ */
+/* Lite glass: translucent layers over the soft background, no per-card backdrop blur
+   (keeps scrolling smooth on phones). Real backdrop blur only on fixed UI via .glass-blur. */
 .glass {
   position: relative;
   isolation: isolate;
   border-radius: var(--r, var(--radius));
   background:
-    linear-gradient(140deg, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0.035) 38%, rgba(255, 255, 255, 0.02) 62%, rgba(255, 255, 255, 0.06) 100%);
-  -webkit-backdrop-filter: blur(24px) saturate(175%);
-  backdrop-filter: blur(24px) saturate(175%);
+    linear-gradient(140deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.035) 38%, rgba(255, 255, 255, 0.02) 62%, rgba(255, 255, 255, 0.055) 100%),
+    rgba(17, 19, 24, 0.5);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.24),
     inset 0 -1px 0 rgba(255, 255, 255, 0.05),
@@ -93,7 +93,12 @@ img { max-width: 100%; display: block; }
   transition: opacity 0.4s var(--ease);
 }
 .glass > * { position: relative; z-index: 1; }
-.glass-strong { background: linear-gradient(140deg, rgba(30, 33, 40, 0.72), rgba(14, 16, 20, 0.62)); }
+.glass-blur {
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03) 45%, rgba(255, 255, 255, 0.05)), rgba(17, 19, 24, 0.38);
+  -webkit-backdrop-filter: blur(22px) saturate(170%);
+  backdrop-filter: blur(22px) saturate(170%);
+}
+.glass-strong { background: linear-gradient(140deg, rgba(30, 33, 40, 0.86), rgba(14, 16, 20, 0.8)); }
 .lift { transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease); }
 .lift:hover { transform: translateY(-6px); }
 
@@ -139,8 +144,7 @@ img { max-width: 100%; display: block; }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), inset 0 -3px 8px rgba(120, 30, 0, 0.35), 0 0 0 1px rgba(255, 160, 100, 0.6), 0 20px 44px -12px rgba(255, 106, 26, 0.95); }
 .btn-glass {
   color: var(--text);
-  background: rgba(255, 255, 255, 0.07);
-  -webkit-backdrop-filter: blur(18px) saturate(170%); backdrop-filter: blur(18px) saturate(170%);
+  background: rgba(255, 255, 255, 0.075);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.26), inset 0 0 0 1px rgba(255, 255, 255, 0.12), 0 12px 30px -14px rgba(0, 0, 0, 0.7);
 }
 .btn-glass:hover { background: rgba(255, 255, 255, 0.12); transform: translateY(-2px); }
@@ -153,7 +157,7 @@ img { max-width: 100%; display: block; }
 .chip .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 10px var(--orange); }
 .pill-link {
   display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.45rem 0.6rem 0.45rem 0.55rem; border-radius: 999px; font-size: 14px; color: var(--text);
-  background: rgba(255, 255, 255, 0.06); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.065);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.18);
   transition: background 0.3s var(--ease);
 }
@@ -174,9 +178,9 @@ img { max-width: 100%; display: block; }
 .nav { position: fixed; top: 14px; left: 50%; transform: translateX(-50%); z-index: 60; width: min(1120px, calc(100% - 24px)); }
 .nav-pill {
   --r: 999px; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-  height: 66px; padding: 0 10px 0 20px; transition: height 0.4s var(--ease), background 0.4s var(--ease);
+  height: 66px; padding: 0 10px 0 20px; transition: background-color 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
-.nav.scrolled .nav-pill { height: 58px; background: linear-gradient(140deg, rgba(28, 30, 37, 0.78), rgba(12, 13, 17, 0.7)); }
+.nav.scrolled .nav-pill { background-color: rgba(12, 13, 17, 0.62); }
 .nav-logo { display: flex; align-items: center; gap: 12px; }
 .nav-logo { margin-left: 6px; }
 .nav-logo .nav-icon { width: 40px; height: 40px; filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.45)); }
@@ -353,8 +357,12 @@ select.input option { background: #15171c; color: var(--text); }
 /* ============ Motion ============ */
 .js .reveal { opacity: 0; transform: translateY(26px); transition: opacity 1s var(--ease), transform 1s var(--ease); transition-delay: var(--d, 0ms); }
 .js .reveal.in { opacity: 1; transform: none; }
+/* Above-the-fold content animates in with pure CSS, so it never waits for JavaScript. */
+.js .hero .reveal, .js .page-hero .reveal { opacity: 1; transform: none; transition: none; animation: rise 0.9s var(--ease) both; animation-delay: var(--d, 0ms); }
+@keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
 @media (max-width: 768px) {
-  .glass { -webkit-backdrop-filter: blur(16px) saturate(165%); backdrop-filter: blur(16px) saturate(165%); }
+  .glass-blur { -webkit-backdrop-filter: blur(14px) saturate(160%); backdrop-filter: blur(14px) saturate(160%); }
+  .float-icon, .float-chip { animation: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }

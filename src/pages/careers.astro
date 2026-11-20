@@ -2,13 +2,17 @@
 import Layout from '../layouts/Layout.astro';
 import SectionHead from '../components/SectionHead.astro';
 import { Rocket, Users, Sparkles, Upload, Send, CircleCheck, Lock } from '@lucide/astro';
-import { CAREERS_EMAIL, CONTACT_EMAIL } from '../config';
+import { CAREERS_FORM_KEY, CONTACT_EMAIL } from '../config';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const site = Astro.site ?? new URL('https://shayan-aqudas.github.io');
-const open = CAREERS_EMAIL.trim().length > 0;
-const action = open ? `https://formsubmit.co/${CAREERS_EMAIL.trim()}` : undefined;
-const nextUrl = new URL(`${base}/careers/?sent=1`, site).toString();
+// One-time FormSubmit activation: only while running `astro dev`, a value from the local,
+// git-ignored .env file (CAREERS_FORM_DEV) may be used. Production builds never read it.
+const devKey = import.meta.env.DEV ? (import.meta.env.CAREERS_FORM_DEV ?? '') : '';
+const formKey = String(CAREERS_FORM_KEY || devKey).trim();
+const open = formKey.length > 0;
+const action = open ? `https://formsubmit.co/${formKey}` : undefined;
+const nextUrl = new URL(`${base}/careers/?sent=1`, import.meta.env.DEV ? Astro.url.origin : site).toString();
 
 // Add open roles here when you start hiring, e.g. { title: 'Flutter Developer', type: 'Full-time · Remote' }
 const roles: { title: string; type: string }[] = [];

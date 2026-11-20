@@ -1,9 +1,10 @@
 // Site-wide settings.
 
-// Careers applications are delivered to this inbox through FormSubmit (formsubmit.co).
-// Leave it empty to keep the application form closed. The first application sent after
-// you fill this in triggers a one-time activation email from FormSubmit to this address.
-export const CAREERS_EMAIL = '';
+// Careers applications are delivered through FormSubmit (formsubmit.co) to a private inbox.
+// Put ONLY the FormSubmit random-string alias here, never the real email address, so the
+// inbox never appears in the website code, the built pages or the public repository.
+// While this is empty the application form stays closed on the live site.
+export const CAREERS_FORM_KEY = '';
 
 export const PLAY_URL = 'https://play.google.com/store/apps/details?id=com.nooraya.app';
 export const STORE_URL = 'https://shoptic.store';

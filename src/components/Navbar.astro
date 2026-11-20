@@ -17,7 +17,7 @@ const isActive = (href: string) => {
 ---
 
 <header class="nav" id="nav">
-  <nav class="glass nav-pill" aria-label="Main">
+  <nav class="glass glass-blur nav-pill" aria-label="Main">
     <a href={`${base}/`} class="nav-logo" aria-label="Shoptic Technologies home">
       <img class="nav-icon" src={`${base}/images/shoptic-icon.svg`} alt="" width="42" height="42" />
       <img class="nav-word" src={`${base}/images/shoptic-wordmark.svg`} alt="Shoptic Technologies" width="134" height="28" />
@@ -34,7 +34,7 @@ const isActive = (href: string) => {
       </button>
     </div>
   </nav>
-  <div class="glass glass-strong mobile-menu" id="mobile-menu">
+  <div class="glass glass-blur glass-strong mobile-menu" id="mobile-menu">
     {links.map((l) => <a href={l.href} class={isActive(l.href) ? 'active' : ''}>{l.name}<ArrowUpRight /></a>)}
     <a href={`${base}/privacy`}>Privacy Policy<ArrowUpRight /></a>
     <a href={`${base}/apps`} class="btn btn-primary mt-2" style="justify-content:center;color:#fff">Our products</a>
@@ -44,13 +44,22 @@ const isActive = (href: string) => {
 <script>
   const nav = document.getElementById('nav');
   const btn = document.getElementById('menu-btn');
-  const onScroll = () => nav?.classList.toggle('scrolled', window.scrollY > 24);
+  let scrolled = false;
+  const onScroll = () => {
+    const s = window.scrollY > 24;
+    if (s !== scrolled) { scrolled = s; nav?.classList.toggle('scrolled', s); }
+  };
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
-  btn?.addEventListener('click', () => {
-    const open = nav?.classList.toggle('open') ?? false;
-    btn.setAttribute('aria-expanded', String(open));
-    (btn.querySelector('.i-open') as HTMLElement).style.display = open ? 'none' : '';
-    (btn.querySelector('.i-close') as HTMLElement).style.display = open ? '' : 'none';
-  });
+  const setOpen = (open: boolean) => {
+    nav?.classList.toggle('open', open);
+    btn?.setAttribute('aria-expanded', String(open));
+    btn?.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    (btn?.querySelector('.i-open') as HTMLElement).style.display = open ? 'none' : '';
+    (btn?.querySelector('.i-close') as HTMLElement).style.display = open ? '' : 'none';
+  };
+  btn?.addEventListener('click', (e) => { e.stopPropagation(); setOpen(!nav?.classList.contains('open')); });
+  document.addEventListener('click', (e) => { if (nav?.classList.contains('open') && !nav.contains(e.target as Node)) setOpen(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+  window.addEventListener('pageshow', () => setOpen(false));
 </script>
