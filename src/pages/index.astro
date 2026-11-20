@@ -1,16 +1,230 @@
 ---
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  title="Shoptic Technologies — Engineering Purposeful Mobile Experiences"
+  description="Shoptic Technologies is a modern digital engineering studio crafting privacy-first mobile apps, intelligent utilities, and elegant software including Nooraya."
+>
+  <!-- Hero Section -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 pt-16 sm:pt-24 pb-16 text-center relative">
+    <!-- Top Floating Pill -->
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel text-xs sm:text-sm font-medium text-cyan-300 border border-cyan-500/30 mb-8 shadow-lg shadow-cyan-500/10">
+      <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+      <span>Crafting Mobile Excellence</span>
+    </div>
+
+    <!-- Main Headline -->
+    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-[1.12]">
+      Engineering <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-emerald-400 to-indigo-400">Purposeful</span> Digital Products.
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="mt-6 text-base sm:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+      Shoptic Technologies is an independent software studio building fast, privacy-first mobile applications, lifestyle utilities, and tools designed with architectural precision.
+    </p>
+
+    <!-- Hero CTA Buttons -->
+    <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+      <a href="/apps" class="px-6 py-3.5 rounded-2xl text-sm font-semibold glass-button-primary inline-flex items-center gap-2">
+        <span>Discover Our Apps</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+        </svg>
+      </a>
+      <a href="/about" class="px-6 py-3.5 rounded-2xl text-sm font-semibold glass-button-secondary inline-flex items-center gap-2">
+        <span>About Our Studio</span>
+      </a>
+    </div>
+
+    <!-- Stats Glass Ribbon -->
+    <div class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto">
+      <div class="glass-card rounded-2xl p-5 text-center">
+        <div class="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">100%</div>
+        <div class="text-xs text-gray-400 mt-1 font-medium">Privacy Focused</div>
+      </div>
+      <div class="glass-card rounded-2xl p-5 text-center">
+        <div class="text-2xl sm:text-3xl font-extrabold text-white">v1.0.3</div>
+        <div class="text-xs text-gray-400 mt-1 font-medium">Active Production</div>
+      </div>
+      <div class="glass-card rounded-2xl p-5 text-center">
+        <div class="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">60 FPS</div>
+        <div class="text-xs text-gray-400 mt-1 font-medium">Smooth Performance</div>
+      </div>
+      <div class="glass-card rounded-2xl p-5 text-center">
+        <div class="text-2xl sm:text-3xl font-extrabold text-white">&lt;24h</div>
+        <div class="text-xs text-gray-400 mt-1 font-medium">Support Turnaround</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured App Spotlight: Nooraya -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+    <div class="text-center mb-12">
+      <div class="text-xs uppercase tracking-widest font-semibold text-cyan-400">Featured Application</div>
+      <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight mt-2">
+        Nooraya — Sacred Islamic Companion
+      </h2>
+      <p class="text-gray-400 text-sm sm:text-base max-w-xl mx-auto mt-3">
+        Our flagship mobile app built for spiritual mindfulness, precise prayer timings, Quran recitation, and authentic hadith archives.
+      </p>
+    </div>
+
+    <!-- Liquid Glass Showcase Card -->
+    <div class="glass-card rounded-3xl p-6 sm:p-10 lg:p-12 relative overflow-hidden border border-white/10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <!-- App Details Column -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="flex items-center gap-4">
+            <img src="/images/nooraya-logo.png" alt="Nooraya Icon" class="w-16 h-16 rounded-2xl shadow-xl shadow-amber-500/10 border border-white/10" />
+            <div>
+              <h3 class="text-2xl font-bold text-white tracking-tight">Nooraya</h3>
+              <p class="text-xs text-emerald-400 font-medium">Version 1.0.3 • Available on Android</p>
+            </div>
+          </div>
+
+          <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+            Engineered with a liquid glass aesthetic, Nooraya provides verified prayer schedules, an animated qibla compass, full Quran recitations by renowned scholars, interactive hadith collections, and sacred ringtones.
+          </p>
+
+          <!-- Key Highlights Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+            <div class="glass-panel rounded-xl p-3 flex items-start gap-3">
+              <span class="text-cyan-400 text-lg">📖</span>
+              <div>
+                <h4 class="text-xs font-semibold text-white">Full Quran & Reciters</h4>
+                <p class="text-[11px] text-gray-400 mt-0.5">Crystal clear audio playback and verse translations.</p>
+              </div>
+            </div>
+            <div class="glass-panel rounded-xl p-3 flex items-start gap-3">
+              <span class="text-emerald-400 text-lg">⏱️</span>
+              <div>
+                <h4 class="text-xs font-semibold text-white">Accurate Prayer Timings</h4>
+                <p class="text-[11px] text-gray-400 mt-0.5">Location-aware calculation with automated adhan alerts.</p>
+              </div>
+            </div>
+            <div class="glass-panel rounded-xl p-3 flex items-start gap-3">
+              <span class="text-amber-400 text-lg">🧭</span>
+              <div>
+                <h4 class="text-xs font-semibold text-white">Haptic Qibla Compass</h4>
+                <p class="text-[11px] text-gray-400 mt-0.5">Smooth sensor-driven Kaaba orientation indicator.</p>
+              </div>
+            </div>
+            <div class="glass-panel rounded-xl p-3 flex items-start gap-3">
+              <span class="text-purple-400 text-lg">🔔</span>
+              <div>
+                <h4 class="text-xs font-semibold text-white">Sacred Ringtones & Sukoon</h4>
+                <p class="text-[11px] text-gray-400 mt-0.5">Adhans, morning adhkar, and curated peaceful sounds.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="pt-4 flex flex-wrap items-center gap-4">
+            <a
+              href="https://play.google.com/store/apps/details?id=com.nooraya.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="glass-button-primary px-5 py-3 rounded-xl text-sm font-semibold inline-flex items-center gap-2.5"
+            >
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3.609 1.814L13.792 12 3.61 22.186c-.198-.124-.316-.341-.316-.583V2.397c0-.242.118-.459.315-.583zm11.37 11.37l2.42 2.42-12.012 6.864 9.592-9.284zm0-2.368L5.387 1.532l12.012 6.864-2.42 2.42zM16.166 12l2.844-2.844 3.738 2.136c.74.423.74 1.109 0 1.532l-3.738 2.136L16.166 12z"/>
+              </svg>
+              <span>Get on Google Play</span>
+            </a>
+            <a href="/privacy" class="text-xs text-gray-400 hover:text-cyan-400 underline decoration-gray-600 underline-offset-4">
+              View Privacy Policy
+            </a>
+          </div>
+        </div>
+
+        <!-- App Screenshot Visual Column -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative group">
+            <!-- Glow behind phone -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-cyan-500/20 to-emerald-500/20 rounded-[40px] blur-2xl -z-10 group-hover:scale-105 transition-transform duration-500"></div>
+            
+            <!-- Phone Mockup Container -->
+            <div class="w-[280px] sm:w-[320px] rounded-[36px] p-2.5 bg-gradient-to-b from-white/20 via-white/5 to-white/10 shadow-2xl border border-white/20 backdrop-blur-xl">
+              <img
+                src="/images/nooraya-screenshot.png"
+                alt="Nooraya App Live Screenshot"
+                class="w-full h-auto rounded-[28px] object-cover shadow-inner"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Studio Pillars -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+    <div class="text-center mb-12">
+      <div class="text-xs uppercase tracking-widest font-semibold text-emerald-400">Our Craft</div>
+      <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight mt-2">
+        Built with Architectural Standards
+      </h2>
+      <p class="text-gray-400 text-sm max-w-lg mx-auto mt-2">
+        Every line of code and user interface is built to survive high scale and preserve user trust.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Pillar 1 -->
+      <div class="glass-card rounded-2xl p-7 space-y-4">
+        <div class="w-12 h-12 rounded-xl glass-panel flex items-center justify-center text-cyan-400 text-xl border border-cyan-500/30">
+          🛡️
+        </div>
+        <h3 class="text-lg font-bold text-white">Privacy First Architecture</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          We do not sell personal data or build covert tracking profiles. Location data and audio caches stay safely contained on the user's device.
+        </p>
+      </div>
+
+      <!-- Pillar 2 -->
+      <div class="glass-card rounded-2xl p-7 space-y-4">
+        <div class="w-12 h-12 rounded-xl glass-panel flex items-center justify-center text-emerald-400 text-xl border border-emerald-500/30">
+          💎
+        </div>
+        <h3 class="text-lg font-bold text-white">Liquid Glass Aesthetics</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Inspired by refractive materials and fluid motion, our apps deliver delightful tactile feedback, seamless transitions, and ergonomic layouts.
+        </p>
+      </div>
+
+      <!-- Pillar 3 -->
+      <div class="glass-card rounded-2xl p-7 space-y-4">
+        <div class="w-12 h-12 rounded-xl glass-panel flex items-center justify-center text-indigo-400 text-xl border border-indigo-500/30">
+          ⚡
+        </div>
+        <h3 class="text-lg font-bold text-white">Engineered for Performance</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Optimized native compilation, battery-conscious location calculations, and efficient audio streaming engines guarantee a frictionless user journey.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+    <div class="glass-card rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden border border-white/10">
+      <div class="max-w-2xl mx-auto space-y-4">
+        <h2 class="text-2xl sm:text-4xl font-bold text-white tracking-tight">
+          Have Feedback or Questions?
+        </h2>
+        <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+          We actively listen to our community. For app bug reports, technical support, or partnership inquiries, our team responds swiftly.
+        </p>
+        <div class="pt-4 flex flex-wrap justify-center gap-4">
+          <a href="/contact" class="px-6 py-3 rounded-xl text-sm font-semibold glass-button-primary">
+            Contact Support
+          </a>
+          <a href="/privacy" class="px-6 py-3 rounded-xl text-sm font-semibold glass-button-secondary">
+            Read Privacy Policy
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

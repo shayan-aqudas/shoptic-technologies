@@ -1,0 +1,141 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Privacy Policy — Shoptic Technologies"
+  description="Privacy Policy for mobile applications and services developed by Shoptic Technologies, including the Nooraya app."
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 pt-16 sm:pt-20 pb-20">
+    <!-- Header -->
+    <div class="space-y-3 mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-panel text-xs font-medium text-cyan-300 border border-cyan-500/30">
+        <span>Legal Documentation</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+        Privacy Policy
+      </h1>
+      <p class="text-xs text-gray-400">
+        Effective Date: November 20, 2026 • Applicable to <strong>Shoptic Technologies</strong> and <strong>Nooraya (com.nooraya.app)</strong>
+      </p>
+    </div>
+
+    <!-- Content Container -->
+    <div class="glass-card rounded-3xl p-6 sm:p-10 space-y-8 text-gray-300 text-sm leading-relaxed border border-white/10">
+      <!-- Section 1 -->
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+          <span class="text-cyan-400">1.</span> Introduction
+        </h2>
+        <p>
+          Welcome to Shoptic Technologies ("we," "our," or "us"). We build and maintain mobile applications and services, including our flagship application <strong>Nooraya</strong>.
+        </p>
+        <p>
+          We are committed to protecting the privacy of our users. This Privacy Policy outlines what information our applications access, how that information is used, and the choices you have regarding your data. By using our applications, you agree to the collection and use of information in accordance with this policy.
+        </p>
+      </section>
+
+      <!-- Section 2: Location Data -->
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+          <span class="text-cyan-400">2.</span> Location Information (Nooraya)
+        </h2>
+        <p>
+          Our application <strong>Nooraya</strong> may request access to your device's geographical location (Approximate Location and/or Precise Location).
+        </p>
+        <div class="glass-panel rounded-2xl p-4 space-y-2 text-xs">
+          <p class="font-semibold text-white">Why Location is Needed:</p>
+          <ul class="list-disc list-inside space-y-1 text-gray-300">
+            <li><strong>Astronomical Prayer Time Calculations:</strong> Islamic prayer timings (Fajr, Dhuhr, Asr, Maghrib, Isha) vary significantly based on latitude and longitude coordinates.</li>
+            <li><strong>Qibla Compass Direction:</strong> To calculate the precise azimuth angle toward the Kaaba in Makkah from your current position.</li>
+          </ul>
+        </div>
+        <p class="text-xs text-emerald-400 font-medium">
+          🔒 <strong>Privacy Guarantee:</strong> Your location coordinates are processed locally on your device or via ephemeral lookup queries. We DO NOT store your historical location trails on our servers, and we NEVER sell or share location data with data brokers.
+        </p>
+      </section>
+
+      <!-- Section 3: Audio & Device Permissions -->
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+          <span class="text-cyan-400">3.</span> Device Permissions & Audio Features
+        </h2>
+        <ul class="list-disc list-inside space-y-2 text-xs sm:text-sm">
+          <li><strong>Notifications:</strong> Used strictly to deliver timely prayer calls (Adhan alerts) and daily spiritual reminders. You can enable or disable notifications at any time in system settings.</li>
+          <li><strong>System Settings / Ringtone Modification:</strong> If you explicitly choose to apply a sacred ringtone, adhan, or alarm sound through Nooraya's Ringtone module, the app requests the standard Android system permission to set the chosen tone.</li>
+          <li><strong>Sensors (Magnetometer / Accelerometer):</strong> Used solely for the real-time Qibla compass needle alignment.</li>
+        </ul>
+      </section>
+
+      <!-- Section 4: Third-Party SDKs -->
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+          <span class="text-cyan-400">4.</span> Third-Party Services & Analytics
+        </h2>
+        <p>
+          To maintain app performance, track critical crashes, and support development, we partner with industry-standard service providers:
+        </p>
+        <div class="space-y-3 pt-1">
+          <div class="glass-panel rounded-xl p-3 text-xs">
+            <span class="font-bold text-white">Google Play Services & Firebase Analytics:</span>
+            <p class="text-gray-400 mt-1">
+              Provides anonymous crash diagnostics, app stability metrics, and aggregate installation telemetry. No personal identities are linked.
+            </p>
+          </div>
+          <div class="glass-panel rounded-xl p-3 text-xs">
+            <span class="font-bold text-white">Google AdMob:</span>
+            <p class="text-gray-400 mt-1">
+              May display advertisements in the free tier of our applications. AdMob may utilize anonymous advertising identifiers subject to Google's privacy policies. Users can upgrade to Nooraya Gold for an ad-free experience.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: Children's Privacy -->
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+          <span class="text-cyan-400">5.</span> Children's Privacy (COPPA Compliance)
+        </h2>
+        <p>
+          Our applications are general audience apps and do not knowingly collect personal identifiable information from children under the age of 13. If you believe that a minor has provided us with personal information, please contact us immediately, and we will take prompt steps to remove such data.
+        </p>
+      </section>
+
+      <!-- Section 6: Data Retention & Deletion Rights -->
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+          <span class="text-cyan-400">6.</span> Data Retention & Your Rights
+        </h2>
+        <p>
+          Since our applications operate on a privacy-first model, the majority of your user preferences (bookmarks, reading progress, notification settings) are stored locally on your device's internal SQLite database. You can clear this data at any time by clearing the application storage in your Android device settings or uninstalling the app.
+        </p>
+      </section>
+
+      <!-- Section 7: Updates to this Policy -->
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+          <span class="text-cyan-400">7.</span> Changes to This Privacy Policy
+        </h2>
+        <p>
+          We may update our Privacy Policy periodically to reflect app updates or regulatory changes. You are advised to review this page periodically for any updates. Changes are effective immediately upon being posted on this URL.
+        </p>
+      </section>
+
+      <!-- Section 8: Contact Us -->
+      <section class="space-y-3 pt-2 border-t border-white/10">
+        <h2 class="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+          <span class="text-cyan-400">8.</span> Contact the Developer
+        </h2>
+        <p>
+          If you have questions, feedback, or requests regarding this Privacy Policy or your data privacy, please contact our support desk:
+        </p>
+        <div class="glass-panel rounded-2xl p-4 text-xs space-y-1">
+          <p class="text-white font-semibold">Shoptic Technologies — Privacy Desk</p>
+          <p>Email: <a href="mailto:support@shoptictechnologies.com" class="text-cyan-400 hover:underline">support@shoptictechnologies.com</a></p>
+          <p>Alternative: <a href="mailto:contact@shoptictechnologies.com" class="text-cyan-400 hover:underline">contact@shoptictechnologies.com</a></p>
+          <p>Website: <a href="https://shoptictechnologies.com" class="text-cyan-400 hover:underline">https://shoptictechnologies.com</a></p>
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>
