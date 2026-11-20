@@ -18,7 +18,8 @@ const isActive = (href: string) => {
 <header class="nav" id="nav">
   <nav class="glass nav-pill" aria-label="Main">
     <a href={`${base}/`} class="nav-logo" aria-label="Shoptic Technologies home">
-      <img src={`${base}/images/shoptic-wordmark.svg`} alt="Shoptic" width="160" height="30" />
+      <img class="nav-icon" src={`${base}/images/shoptic-icon.svg`} alt="" width="42" height="42" />
+      <img class="nav-word" src={`${base}/images/shoptic-wordmark.svg`} alt="Shoptic Technologies" width="134" height="28" />
     </a>
     <div class="nav-links">
       {links.map((l) => <a href={l.href} class={isActive(l.href) ? 'active' : ''}>{l.name}</a>)}
