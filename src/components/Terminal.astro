@@ -2,13 +2,14 @@
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 // [kind, text, result] — p: command, o: step with a result
 const lines: [string, string, string?][] = [
-  ['p', 'shoptic new app --platform android,ios'],
-  ['o', 'clean architecture', 'done'],
+  ['p', 'shoptic build nooraya --platform android'],
   ['o', 'interface design', 'done'],
   ['o', 'profiling on real devices', '60 fps'],
   ['o', 'privacy review', 'passed'],
   ['p', 'shoptic ship nooraya --store play'],
   ['o', 'release', 'live'],
+  ['p', 'shoptic launch shoptic.store'],
+  ['o', 'storefront', 'live'],
 ];
 ---
 

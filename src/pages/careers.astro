@@ -1,0 +1,167 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHead from '../components/SectionHead.astro';
+import { Rocket, Users, Sparkles, Upload, Send, CircleCheck, Lock } from '@lucide/astro';
+import { CAREERS_EMAIL, CONTACT_EMAIL } from '../config';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const site = Astro.site ?? new URL('https://shayan-aqudas.github.io');
+const open = CAREERS_EMAIL.trim().length > 0;
+const action = open ? `https://formsubmit.co/${CAREERS_EMAIL.trim()}` : undefined;
+const nextUrl = new URL(`${base}/careers/?sent=1`, site).toString();
+
+// Add open roles here when you start hiring, e.g. { title: 'Flutter Developer', type: 'Full-time · Remote' }
+const roles: { title: string; type: string }[] = [];
+const why = [
+  { icon: Rocket, t: 'Our own products', d: 'No client work. You build things we own, ship and improve for years.' },
+  { icon: Users, t: 'Small, focused team', d: 'Fewer meetings, more making. Your work is seen and it matters.' },
+  { icon: Sparkles, t: 'Craft over speed', d: 'We take the time to make products fast, calm and well designed.' },
+];
+---
+
+<Layout title="Careers — Shoptic Technologies" description="Work at Shoptic Technologies, the independent product company behind Nooraya and shoptic.store. Send us your resume.">
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow reveal"><span class="sl">//</span> careers</div>
+      <h1 class="display reveal mt-6" style="--d:80ms;font-size:clamp(2.5rem,5.6vw,4.8rem)">
+        <span class="text-silver">Build products</span><br /><span class="text-ember">with us</span><span class="caret"></span>
+      </h1>
+      <p class="lead reveal mt-6 max-w-2xl" style="--d:160ms">
+        We are a small team building our own products. When we are hiring, roles appear here. You are welcome to send your resume any time.
+      </p>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="cards-3">
+      {why.map((w, i) => (
+        <div class="glass card lift reveal" style={`--d:${i * 80}ms`}>
+          <div class="icon-tile"><w.icon /></div>
+          <h3 class="h3">{w.t}</h3>
+          <p class="body">{w.d}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <SectionHead num="01" label="open positions" title="Current openings." />
+      {roles.length > 0 ? (
+        <div class="grid gap-3">
+          {roles.map((r) => (
+            <a href="#apply" class="glass card lift reveal flex items-center justify-between gap-4" style="padding:1.4rem 1.6rem">
+              <div><h3 class="h3" style="margin:0">{r.title}</h3><p class="mono text-[12.5px] mt-1" style="color:var(--faint)">{r.type}</p></div>
+              <span class="btn btn-glass btn-sm">Apply</span>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <div class="glass card reveal flex flex-wrap items-center justify-between gap-5">
+          <div>
+            <h3 class="h3" style="margin:0">No open positions right now</h3>
+            <p class="body">We are not actively hiring today, but we keep every application on file and reach out when a role opens up.</p>
+          </div>
+          <a href="#apply" class="btn btn-glass">Send your resume</a>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="section" id="apply" style="padding-top:0;scroll-margin-top:90px">
+    <div class="wrap">
+      <SectionHead num="02" label="apply" title="Send us your application." sub="Tell us who you are and attach your resume. It goes straight to our team’s inbox." />
+      <div class="glass card reveal apply">
+        <div id="sent" class="sent" hidden>
+          <CircleCheck />
+          <div>
+            <h3 class="h3" style="margin:0">Application received</h3>
+            <p class="body">Thank you for applying. We read every application and will contact you if there is a fit.</p>
+          </div>
+        </div>
+        {!open && (
+          <div class="closed">
+            <Lock />
+            <p>Online applications open soon. Until then, email your resume to <a href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Job application')}`}>{CONTACT_EMAIL}</a>.</p>
+          </div>
+        )}
+        <form id="apply-form" action={action} method="POST" enctype="multipart/form-data" class="grid gap-4" data-open={open ? '1' : '0'}>
+          <input type="hidden" name="_subject" value="New job application — Shoptic Technologies" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_next" value={nextUrl} />
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+          <fieldset disabled={!open} class="grid gap-4">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="field"><label for="a-name">full name</label><input class="input" id="a-name" name="name" required placeholder="Your full name" autocomplete="name" /></div>
+              <div class="field"><label for="a-email">email</label><input class="input" type="email" id="a-email" name="email" required placeholder="you@example.com" autocomplete="email" /></div>
+            </div>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="field"><label for="a-phone">phone</label><input class="input" type="tel" id="a-phone" name="phone" required placeholder="+91" autocomplete="tel" /></div>
+              <div class="field">
+                <label for="a-role">position</label>
+                <select class="input" id="a-role" name="position">
+                  <option value="General application">General application</option>
+                  {roles.map((r) => <option value={r.title}>{r.title}</option>)}
+                </select>
+              </div>
+            </div>
+            <div class="field"><label for="a-address">address</label><textarea class="input" id="a-address" name="address" rows="2" required placeholder="House, street, city, state, PIN" autocomplete="street-address"></textarea></div>
+            <div class="field">
+              <label for="a-resume">resume</label>
+              <label class="drop" for="a-resume">
+                <Upload />
+                <span id="file-label">Upload your resume <span class="hint">PDF or Word, up to 5 MB</span></span>
+              </label>
+              <input class="sr-only" type="file" id="a-resume" name="attachment" accept=".pdf,.doc,.docx" required />
+            </div>
+            <div class="field"><label for="a-note">about you <span style="color:var(--faint)">(optional)</span></label><textarea class="input" id="a-note" name="message" rows="4" placeholder="A few lines about your experience and what you want to build"></textarea></div>
+            <p class="mono text-[12px]" style="color:var(--faint)">// your details are sent by email to our hiring inbox and used only to review your application.</p>
+            <button type="submit" class="btn btn-primary" style="justify-self:start">Submit application <Send class="go" /></button>
+            <p id="apply-error" class="mono text-[12.5px]" style="color:#ff8a7a" hidden></p>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .apply { max-width: 860px; }
+  .closed, .sent { display: flex; gap: 0.9rem; align-items: flex-start; padding: 1rem 1.2rem; border-radius: 18px; margin-bottom: 1.6rem; }
+  .closed { background: rgba(255, 138, 61, 0.07); box-shadow: inset 0 0 0 1px rgba(255, 138, 61, 0.25); color: var(--dim); }
+  .closed a { color: var(--orange-hi); }
+  .sent { background: rgba(126, 226, 168, 0.07); box-shadow: inset 0 0 0 1px rgba(126, 226, 168, 0.28); }
+  .closed :global(svg), .sent :global(svg) { width: 22px; height: 22px; flex: none; margin-top: 2px; color: var(--orange-hi); }
+  .sent :global(svg) { color: var(--ok); }
+  fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+  fieldset:disabled { opacity: 0.55; }
+  .drop { display: flex; align-items: center; gap: 0.8rem; padding: 1.1rem 1.2rem; border-radius: 16px; cursor: pointer; color: var(--text);
+    background: rgba(0, 0, 0, 0.22); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14); border: 1px dashed rgba(255, 255, 255, 0.18); transition: background 0.25s; }
+  .drop:hover { background: rgba(255, 255, 255, 0.05); }
+  .drop :global(svg) { width: 22px; height: 22px; color: var(--orange-hi); flex: none; }
+  .drop :global(.hint) { display: block; font-family: var(--font-mono); font-size: 12px; color: var(--faint); margin-top: 2px; }
+  fieldset:disabled .drop { cursor: not-allowed; }
+</style>
+
+<script>
+  const form = document.getElementById('apply-form') as HTMLFormElement | null;
+  const file = document.getElementById('a-resume') as HTMLInputElement | null;
+  const label = document.getElementById('file-label');
+  const err = document.getElementById('apply-error');
+  if (new URLSearchParams(location.search).get('sent') === '1') {
+    document.getElementById('sent')?.removeAttribute('hidden');
+    form?.setAttribute('hidden', '');
+  }
+  file?.addEventListener('change', () => {
+    const f = file.files?.[0];
+    if (f && label) label.innerHTML = `${f.name} <span class="hint">${(f.size / 1048576).toFixed(1)} MB · tap to change</span>`;
+  });
+  form?.addEventListener('submit', (e) => {
+    if (form.dataset.open !== '1') { e.preventDefault(); return; }
+    const f = file?.files?.[0];
+    if (f && f.size > 5 * 1048576) {
+      e.preventDefault();
+      if (err) { err.hidden = false; err.textContent = '// the resume is larger than 5 MB, please upload a smaller file'; }
+    }
+  });
+</script>

@@ -1,0 +1,56 @@
+---
+import { Check, Watch as WatchIcon } from '@lucide/astro';
+import Watch from './Watch.astro';
+import { STORE_URL, STORE_INSTAGRAM_URL } from '../config';
+const caps = [
+  'Automatic & open-heart watches',
+  'Quartz & chronograph styles',
+  'Digital-analog sport watches',
+  'Fresh arrivals, curated weekly',
+  'Secure online checkout',
+  'Order help on WhatsApp',
+];
+---
+
+<div class="glass showcase store reveal">
+  <div class="glow" aria-hidden="true" style="background:radial-gradient(circle, rgba(226,184,102,0.22), transparent 65%)"></div>
+  <div>
+    <div class="app-head">
+      <div class="icon-tile" style="width:76px;height:76px;border-radius:22px"><WatchIcon style="width:34px;height:34px" /></div>
+      <div>
+        <div class="flex items-center gap-3 flex-wrap">
+          <h3 class="text-3xl font-semibold tracking-tight">shoptic.store</h3>
+          <span class="status">Live</span>
+        </div>
+        <p class="mono text-[12.5px] mt-1" style="color:var(--faint)">Online watch store · India</p>
+      </div>
+    </div>
+    <p class="body mt-6 text-[16.5px]">
+      Our online watch store, curated for people who love a great-looking watch without the luxury price tag.
+      Automatic, quartz, chronograph and digital-analog styles, starting from <strong class="text-white font-medium">₹1,449</strong>.
+    </p>
+    <div class="caps">
+      {caps.map((c) => <div class="cap"><Check />{c}</div>)}
+    </div>
+    <div class="cta-row">
+      <a href={STORE_URL} target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit shoptic.store</a>
+      <a href={STORE_INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-glass">Follow on Instagram</a>
+    </div>
+  </div>
+  <div class="store-visual">
+    <div class="glass store-stage" style="--r:40px">
+      <div class="store-watch"><Watch /></div>
+      <span class="chip price"><span class="dot"></span>from ₹1,449</span>
+      <span class="chip tag-a">automatic</span>
+      <span class="chip tag-b">chronograph</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .store-stage { position: relative; padding: 2.4rem 2rem; display: grid; place-items: center; min-height: 420px; }
+  .store-watch { width: min(230px, 60vw); animation: floaty 8s ease-in-out infinite; }
+  .price { position: absolute; left: 18px; bottom: 22px; color: var(--text); font-size: 13.5px; }
+  .tag-a { position: absolute; right: 18px; top: 24px; }
+  .tag-b { position: absolute; right: 26px; bottom: 70px; }
+</style>

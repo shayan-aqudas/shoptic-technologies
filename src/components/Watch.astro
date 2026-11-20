@@ -1,0 +1,61 @@
+---
+// A drawn watch (no photos, no brand marks). Hands show the visitor's local time.
+const ticks = Array.from({ length: 60 }, (_, i) => i);
+---
+
+<svg class="watch" viewBox="0 0 240 340" role="img" aria-label="Watch illustration">
+  <defs>
+    <linearGradient id="w-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFE7B0" /><stop offset="0.35" stop-color="#E2B866" /><stop offset="0.7" stop-color="#A9782E" /><stop offset="1" stop-color="#F0D28C" />
+    </linearGradient>
+    <radialGradient id="w-dial" cx="0.4" cy="0.35" r="0.8">
+      <stop offset="0" stop-color="#2A2E37" /><stop offset="0.65" stop-color="#15171C" /><stop offset="1" stop-color="#0A0B0E" />
+    </radialGradient>
+    <linearGradient id="w-strap" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#16181D" /><stop offset="0.5" stop-color="#2A2D35" /><stop offset="1" stop-color="#16181D" />
+    </linearGradient>
+    <linearGradient id="w-glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.18" /><stop offset="0.5" stop-color="#fff" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+  <rect x="78" y="0" width="84" height="104" rx="18" fill="url(#w-strap)" />
+  <rect x="78" y="236" width="84" height="104" rx="18" fill="url(#w-strap)" />
+  <g stroke="#ffffff" stroke-opacity="0.12" stroke-width="1" stroke-dasharray="3 4">
+    <path d="M88 8 V96 M152 8 V96 M88 244 V332 M152 244 V332" />
+  </g>
+  <rect x="207" y="158" width="14" height="24" rx="4" fill="url(#w-gold)" />
+  <circle cx="120" cy="170" r="92" fill="url(#w-gold)" />
+  <circle cx="120" cy="170" r="84" fill="#0E0F12" />
+  <circle cx="120" cy="170" r="79" fill="url(#w-dial)" />
+  <g>
+    {ticks.map((i) => (
+      <line x1="120" y1={i % 5 === 0 ? 97 : 95} x2="120" y2={i % 15 === 0 ? 112 : i % 5 === 0 ? 107 : 100}
+        stroke={i % 5 === 0 ? 'url(#w-gold)' : '#ffffff'} stroke-opacity={i % 5 === 0 ? 1 : 0.28}
+        stroke-width={i % 15 === 0 ? 4 : i % 5 === 0 ? 2.4 : 1} stroke-linecap="round" transform={`rotate(${i * 6} 120 170)`} />
+    ))}
+  </g>
+  <text x="120" y="140" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="3" fill="#E2B866">SHOPTIC</text>
+  <text x="120" y="212" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6.5" letter-spacing="2" fill="#8B919C">AUTOMATIC</text>
+  <g class="w-h" data-hand="h"><path d="M117 172 L118.5 124 Q120 118 121.5 124 L123 172 Z" fill="url(#w-gold)" /></g>
+  <g class="w-m" data-hand="m"><path d="M118 174 L119 104 Q120 98 121 104 L122 174 Z" fill="#F2F3F5" /></g>
+  <g class="w-s" data-hand="s"><line x1="120" y1="188" x2="120" y2="100" stroke="#FF6A1A" stroke-width="1.6" stroke-linecap="round" /><circle cx="120" cy="188" r="3" fill="#FF6A1A" /></g>
+  <circle cx="120" cy="170" r="5.5" fill="url(#w-gold)" /><circle cx="120" cy="170" r="2" fill="#0E0F12" />
+  <path d="M55 140 A70 70 0 0 1 150 96" fill="none" stroke="url(#w-glass)" stroke-width="16" stroke-linecap="round" opacity="0.55" />
+</svg>
+
+<style>
+  .watch { width: 100%; height: auto; filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.55)); }
+  [data-hand] { transform-origin: 120px 170px; transform-box: view-box; }
+  .w-s { animation: tick 60s steps(60) infinite; animation-delay: var(--sd, 0s); }
+  @keyframes tick { from { transform: rotate(var(--s0, 0deg)); } to { transform: rotate(calc(var(--s0, 0deg) + 360deg)); } }
+</style>
+
+<script>
+  const now = new Date();
+  const s = now.getSeconds(), m = now.getMinutes() + s / 60, h = (now.getHours() % 12) + m / 60;
+  document.querySelectorAll('.watch').forEach((svg) => {
+    (svg.querySelector('[data-hand="h"]') as SVGGElement).style.transform = `rotate(${h * 30}deg)`;
+    (svg.querySelector('[data-hand="m"]') as SVGGElement).style.transform = `rotate(${m * 6}deg)`;
+    (svg.querySelector('[data-hand="s"]') as SVGGElement).style.setProperty('--s0', `${s * 6}deg`);
+  });
+</script>

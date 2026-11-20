@@ -7,6 +7,7 @@ const links = [
   { name: 'Home', href: `${base}/` },
   { name: 'About', href: `${base}/about` },
   { name: 'Products', href: `${base}/apps` },
+  { name: 'Careers', href: `${base}/careers` },
   { name: 'Contact', href: `${base}/contact` },
 ];
 const isActive = (href: string) => {
@@ -25,8 +26,8 @@ const isActive = (href: string) => {
       {links.map((l) => <a href={l.href} class={isActive(l.href) ? 'active' : ''}>{l.name}</a>)}
     </div>
     <div class="flex items-center gap-2">
-      <a href={`${base}/contact`} class="btn btn-primary btn-sm nav-cta">
-        Start a project <ArrowRight class="go" />
+      <a href={`${base}/apps`} class="btn btn-primary btn-sm nav-cta">
+        Our products <ArrowRight class="go" />
       </a>
       <button class="menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false">
         <Menu class="i-open" /><X class="i-close" style="display:none" />
@@ -36,7 +37,7 @@ const isActive = (href: string) => {
   <div class="glass glass-strong mobile-menu" id="mobile-menu">
     {links.map((l) => <a href={l.href} class={isActive(l.href) ? 'active' : ''}>{l.name}<ArrowUpRight /></a>)}
     <a href={`${base}/privacy`}>Privacy Policy<ArrowUpRight /></a>
-    <a href={`${base}/contact`} class="btn btn-primary mt-2" style="justify-content:center;color:#fff">Start a project</a>
+    <a href={`${base}/apps`} class="btn btn-primary mt-2" style="justify-content:center;color:#fff">Our products</a>
   </div>
 </header>
 

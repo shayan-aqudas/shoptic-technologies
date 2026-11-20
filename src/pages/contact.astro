@@ -1,9 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Mail, Handshake, Clock, Send } from '@lucide/astro';
+import { Mail, Handshake, Clock, Send, ShoppingBag } from '@lucide/astro';
+import { SUPPORT_EMAIL, CONTACT_EMAIL, STORE_CONTACT_URL, STORE_WHATSAPP_URL } from '../config';
 ---
 
-<Layout title="Contact — Shoptic Technologies" description="Contact Shoptic Technologies for app support, new projects and business partnerships.">
+<Layout title="Contact — Shoptic Technologies" description="Contact Shoptic Technologies for Nooraya support, shoptic.store orders and business partnerships.">
   <section class="page-hero">
     <div class="wrap">
       <div class="eyebrow reveal"><span class="sl">//</span> contact</div>
@@ -11,7 +12,7 @@ import { Mail, Handshake, Clock, Send } from '@lucide/astro';
         <span class="text-silver">Let’s talk</span><span class="caret"></span>
       </h1>
       <p class="lead reveal mt-6 max-w-2xl" style="--d:160ms">
-        A new project, feedback on Nooraya or a partnership idea. Send us a note and a real person will reply.
+        Help with Nooraya, a question about a shoptic.store order or a partnership idea. Pick the right desk and a real person will reply.
       </p>
     </div>
   </section>
@@ -19,18 +20,54 @@ import { Mail, Handshake, Clock, Send } from '@lucide/astro';
   <section class="wrap">
     <div class="grid gap-5 lg:grid-cols-[0.9fr_1.1fr] items-start">
       <div class="grid gap-5">
-        <a href="mailto:support@shoptictechnologies.com" class="glass card lift reveal block">
+        <a href={`mailto:${SUPPORT_EMAIL}`} class="glass card lift reveal block">
           <div class="icon-tile"><Mail /></div>
-          <h3 class="h3">App support & bugs</h3>
-          <p class="body">Technical questions, prayer time checks or bug reports for Nooraya.</p>
-          <p class="mono mt-4 text-[14px]" style="color:var(--orange-hi)">support@shoptictechnologies.com</p>
+          <h3 class="h3">Nooraya support</h3>
+          <p class="body">Technical questions, prayer time checks or bug reports for the Nooraya app.</p>
+          <p class="mono mt-4 text-[14px]" style="color:var(--orange-hi)">{SUPPORT_EMAIL}</p>
         </a>
-        <a href="mailto:contact@shoptictechnologies.com" class="glass card lift reveal block" style="--d:80ms">
+        <div class="glass card reveal" style="--d:60ms">
+          <div class="icon-tile"><ShoppingBag /></div>
+          <h3 class="h3">shoptic.store orders</h3>
+          <p class="body">Order status, delivery or product questions are answered fastest by the store team.</p>
+          <div class="flex flex-wrap gap-3 mt-5">
+            <a href={STORE_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Chat on WhatsApp</a>
+            <a href={STORE_CONTACT_URL} target="_blank" rel="noopener noreferrer" class="btn btn-glass btn-sm">Store contact page</a>
+          </div>
+        </div>
+        <a href={`mailto:${CONTACT_EMAIL}`} class="glass card lift reveal block" style="--d:120ms">
           <div class="icon-tile"><Handshake /></div>
-          <h3 class="h3">Projects & partnerships</h3>
-          <p class="body">New software projects, business proposals and general studio questions.</p>
-          <p class="mono mt-4 text-[14px]" style="color:var(--orange-hi)">contact@shoptictechnologies.com</p>
+          <h3 class="h3">Business & partnerships</h3>
+          <p class="body">Partnerships, press and general questions about Shoptic Technologies.</p>
+          <p class="mono mt-4 text-[14px]" style="color:var(--orange-hi)">{CONTACT_EMAIL}</p>
         </a>
+      </div>
+
+      <div class="grid gap-5">
+        <div class="glass card reveal" style="--d:120ms">
+          <h2 class="h3" style="margin-top:0;font-size:1.6rem">Send a message</h2>
+          <p class="body">Fill in the form and it opens in your email app, ready to send.</p>
+          <form id="contact-form" class="grid gap-4 mt-7">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="field"><label for="name">your name</label><input class="input" id="name" name="name" required placeholder="Full name" autocomplete="name" /></div>
+              <div class="field"><label for="email">email</label><input class="input" type="email" id="email" name="email" required placeholder="you@example.com" autocomplete="email" /></div>
+            </div>
+            <div class="field">
+              <label for="topic">topic</label>
+              <select class="input" id="topic" name="topic">
+                <option value="Nooraya support">Nooraya app support</option>
+                <option value="Nooraya bug report">Nooraya bug report</option>
+                <option value="shoptic.store order">shoptic.store order</option>
+                <option value="Business or partnership">Business or partnership</option>
+                <option value="Privacy question">Privacy or data question</option>
+                <option value="Other">Something else</option>
+              </select>
+            </div>
+            <div class="field"><label for="message">message</label><textarea class="input" id="message" name="message" rows="6" required placeholder="How can we help?"></textarea></div>
+            <button type="submit" class="btn btn-primary mt-2" style="justify-self:start">Send message <Send class="go" /></button>
+            <p id="form-note" class="mono text-[12.5px]" style="color:var(--faint)" hidden></p>
+          </form>
+        </div>
         <div class="glass card reveal flex gap-4 items-start" style="--d:160ms">
           <div class="icon-tile" style="flex:none"><Clock /></div>
           <div>
@@ -39,43 +76,19 @@ import { Mail, Handshake, Clock, Send } from '@lucide/astro';
           </div>
         </div>
       </div>
-
-      <div class="glass card reveal" style="--d:120ms">
-        <h2 class="h3" style="margin-top:0;font-size:1.6rem">Send a message</h2>
-        <p class="body">Fill in the form and it opens in your email app, ready to send.</p>
-        <form id="contact-form" class="grid gap-4 mt-7">
-          <div class="grid gap-4 sm:grid-cols-2">
-            <div class="field"><label for="name">your name</label><input class="input" id="name" name="name" required placeholder="Full name" autocomplete="name" /></div>
-            <div class="field"><label for="email">email</label><input class="input" type="email" id="email" name="email" required placeholder="you@example.com" autocomplete="email" /></div>
-          </div>
-          <div class="field">
-            <label for="topic">topic</label>
-            <select class="input" id="topic" name="topic">
-              <option value="New project">New project</option>
-              <option value="Nooraya support">Nooraya app support</option>
-              <option value="Bug report">Bug report</option>
-              <option value="Feature request">Feature request</option>
-              <option value="Privacy question">Privacy or data question</option>
-              <option value="Partnership">Business or partnership</option>
-            </select>
-          </div>
-          <div class="field"><label for="message">message</label><textarea class="input" id="message" name="message" rows="6" required placeholder="Tell us a little about it"></textarea></div>
-          <button type="submit" class="btn btn-primary mt-2" style="justify-self:start">Send message <Send class="go" /></button>
-          <p id="form-note" class="mono text-[12.5px]" style="color:var(--faint)" hidden></p>
-        </form>
-      </div>
     </div>
   </section>
 </Layout>
 
 <script>
+  import { SUPPORT_EMAIL, CONTACT_EMAIL } from '../config';
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
   const note = document.getElementById('form-note');
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
     const d = new FormData(form);
     const topic = String(d.get('topic'));
-    const to = /support|Bug|Feature|Privacy/i.test(topic) ? 'support@shoptictechnologies.com' : 'contact@shoptictechnologies.com';
+    const to = /Nooraya|Privacy/i.test(topic) ? SUPPORT_EMAIL : CONTACT_EMAIL;
     const body = `${d.get('message')}\n\n— ${d.get('name')} (${d.get('email')})`;
     window.location.href = `mailto:${to}?subject=${encodeURIComponent(`${topic} — ${d.get('name')}`)}&body=${encodeURIComponent(body)}`;
     if (note) { note.hidden = false; note.textContent = `// opening your email app to send this to ${to}`; }

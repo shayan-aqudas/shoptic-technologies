@@ -2,24 +2,25 @@
 import Layout from '../layouts/Layout.astro';
 import Terminal from '../components/Terminal.astro';
 import SectionHead from '../components/SectionHead.astro';
-import Nooraya from '../components/Nooraya.astro';
+import Watch from '../components/Watch.astro';
 import CTA from '../components/CTA.astro';
-import { ArrowRight, ArrowUpRight, Smartphone, Globe, PenTool, ShieldCheck } from '@lucide/astro';
+import { ArrowRight, ArrowUpRight, ShieldCheck, Gauge, PenTool, LifeBuoy } from '@lucide/astro';
+import { PLAY_URL, STORE_URL } from '../config';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const services = [
-  { icon: Smartphone, title: 'Mobile apps', text: 'Android and iOS apps in Flutter and Kotlin. Smooth, battery-friendly and built to keep working for years.', tags: ['flutter', 'kotlin', 'play store'] },
-  { icon: Globe, title: 'Websites & web apps', text: 'Fast, search-friendly websites and web platforms, from a launch page to a complete product.', tags: ['astro', 'tailwind', 'cloudflare'] },
-  { icon: PenTool, title: 'Product & UI design', text: 'Interfaces that feel calm and obvious. Flows, prototypes, design systems and brand identity.', tags: ['ui / ux', 'design systems', 'branding'] },
-  { icon: ShieldCheck, title: 'Privacy & performance', text: 'Privacy-first architecture, on-device processing and profiling until every screen runs smooth.', tags: ['on-device', '60 fps', 'audits'] },
+const principles = [
+  { icon: ShieldCheck, title: 'Privacy first', text: 'Data stays on the device wherever possible, and we never sell personal information.' },
+  { icon: Gauge, title: 'Fast by default', text: 'Every screen is profiled on real devices until it runs smooth on everyday phones.' },
+  { icon: PenTool, title: 'Crafted design', text: 'Calm, obvious interfaces with careful motion and attention to every detail.' },
+  { icon: LifeBuoy, title: 'Here for the long run', text: 'Steady updates, quick fixes and real human support long after launch day.' },
 ];
 const steps = [
-  { t: 'Discover', d: 'We start with the problem, the people it affects and what success looks like.' },
-  { t: 'Design', d: 'Flows, prototypes and a visual system before any production code is written.' },
-  { t: 'Engineer', d: 'Clean architecture, tested builds and performance checks on real devices.' },
-  { t: 'Ship & support', d: 'Store release, monitoring and steady updates long after launch day.' },
+  { t: 'Find a real need', d: 'Every product starts with a problem we have seen people struggle with every day.' },
+  { t: 'Design it calmly', d: 'Flows, prototypes and a visual system before any production code is written.' },
+  { t: 'Engineer it well', d: 'Clean architecture, tested builds and performance checks on real devices.' },
+  { t: 'Ship and improve', d: 'Launch, listen to customers and keep improving with every release.' },
 ];
-const stack = ['Flutter', 'Dart', 'Kotlin', 'Android', 'Firebase', 'SQLite', 'Astro', 'Tailwind CSS', 'Cloudflare', 'Google Play'];
+const stack = ['Flutter', 'Dart', 'Kotlin', 'Android', 'Firebase', 'SQLite', 'Shopify', 'Astro', 'Tailwind CSS', 'Cloudflare'];
 ---
 
 <Layout>
@@ -27,21 +28,21 @@ const stack = ['Flutter', 'Dart', 'Kotlin', 'Android', 'Firebase', 'SQLite', 'As
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <a href={`${base}/apps`} class="pill-link reveal"><span class="tag">new</span>Nooraya is live on Google Play<ArrowUpRight /></a>
+        <a href={`${base}/apps`} class="pill-link reveal"><span class="tag">live</span>Nooraya and shoptic.store<ArrowUpRight /></a>
         <h1 class="display reveal" style="--d:80ms;font-size:clamp(2.8rem,5.3vw,4.9rem)">
-          <span class="text-silver">Software that</span><br /><span class="text-silver">feels </span><span class="text-ember">effortless</span><span class="caret"></span>
+          <span class="text-silver">Products that</span><br /><span class="text-silver">feel </span><span class="text-ember">effortless</span><span class="caret"></span>
         </h1>
         <p class="lead reveal" style="--d:160ms">
-          Shoptic Technologies is an independent software studio. We design and engineer fast, privacy-first
-          mobile apps and digital products that people enjoy using every day.
+          Shoptic Technologies is an independent product company. We design, build and run our own products,
+          from Nooraya, our Islamic lifestyle app, to shoptic.store, our online watch store.
         </p>
         <div class="cta-row reveal" style="--d:240ms">
-          <a href={`${base}/contact`} class="btn btn-primary">Start a project <ArrowRight class="go" /></a>
-          <a href={`${base}/apps`} class="btn btn-glass">Explore products</a>
+          <a href={`${base}/apps`} class="btn btn-primary">Explore our products <ArrowRight class="go" /></a>
+          <a href={`${base}/about`} class="btn btn-glass">About us</a>
         </div>
         <div class="hero-meta reveal" style="--d:320ms">
-          <span class="chip"><span class="dot"></span>mobile</span>
-          <span class="chip"><span class="dot"></span>web</span>
+          <span class="chip"><span class="dot"></span>apps</span>
+          <span class="chip"><span class="dot"></span>e-commerce</span>
           <span class="chip"><span class="dot"></span>design</span>
         </div>
       </div>
@@ -52,42 +53,66 @@ const stack = ['Flutter', 'Dart', 'Kotlin', 'Android', 'Firebase', 'SQLite', 'As
   <!-- Stats -->
   <section class="wrap">
     <div class="glass stats reveal">
-      <div class="stat"><div class="v text-ember">Live</div><div class="l">Nooraya on Google Play</div></div>
+      <div class="stat"><div class="v text-ember">2 live</div><div class="l">products built and run in-house</div></div>
       <div class="stat"><div class="v">60 fps</div><div class="l">smooth UI target on every screen</div></div>
       <div class="stat"><div class="v">On-device</div><div class="l">your data stays on your phone where possible</div></div>
       <div class="stat"><div class="v">24–48h</div><div class="l">support response time</div></div>
     </div>
   </section>
 
-  <!-- Services -->
+  <!-- Products -->
   <section class="section">
     <div class="wrap">
-      <SectionHead num="01" label="what we do" title="Everything a product needs,<br/>under one roof." sub="From the first sketch to the store listing, one small team owns the whole journey, so nothing gets lost between design and code." />
+      <SectionHead num="01" label="our products" title="Two products,<br/>one standard." sub="We only build what we own and run ourselves, so every product gets our full attention, long after launch." />
       <div class="cards-2">
-        {services.map((s, i) => (
+        <a href={`${base}/apps`} class="glass card lift reveal prod">
+          <div class="flex items-center justify-between gap-4">
+            <div class="glass app-icon" style="--r:20px;width:64px;height:64px;padding:5px"><img src={`${base}/images/nooraya-logo.webp`} alt="" width="54" height="54" style="border-radius:15px" /></div>
+            <span class="status">Live on Google Play</span>
+          </div>
+          <p class="mono text-[12.5px] mt-6" style="color:var(--faint)">mobile app · android</p>
+          <h3 class="h3" style="margin-top:.5rem;font-size:1.7rem">Nooraya</h3>
+          <p class="body">Islamic lifestyle companion with prayer times, Qibla compass, the complete Quran with audio reciters, Hadith and duas.</p>
+          <div class="prod-shot glass" style="--r:24px"><img src={`${base}/images/nooraya-screenshot.webp`} alt="Nooraya home screen" width="720" height="1608" loading="lazy" /></div>
+          <span class="prod-link">See Nooraya <ArrowRight /></span>
+        </a>
+        <a href={`${base}/apps#store`} class="glass card lift reveal prod" style="--d:100ms">
+          <div class="flex items-center justify-between gap-4">
+            <div class="icon-tile" style="width:64px;height:64px;border-radius:20px">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px"><circle cx="12" cy="12" r="6"/><polyline points="12 10 12 12 13 13"/><path d="m16.13 7.66-.81-4.05a2 2 0 0 0-2-1.61h-2.68a2 2 0 0 0-2 1.61l-.78 4.05"/><path d="m7.88 16.36.8 4a2 2 0 0 0 2 1.61h2.72a2 2 0 0 0 2-1.61l.81-4.05"/></svg>
+            </div>
+            <span class="status">Live</span>
+          </div>
+          <p class="mono text-[12.5px] mt-6" style="color:var(--faint)">online store · watches</p>
+          <h3 class="h3" style="margin-top:.5rem;font-size:1.7rem">shoptic.store</h3>
+          <p class="body">Our online watch store. Automatic, quartz and chronograph styles with great design and honest prices, from ₹1,449.</p>
+          <div class="prod-shot glass watch-shot" style="--r:24px"><div style="width:150px"><Watch /></div></div>
+          <span class="prod-link">See shoptic.store <ArrowRight /></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Principles -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <SectionHead num="02" label="what we stand for" title="The standard behind<br/>everything we ship." />
+      <div class="cards-4">
+        {principles.map((s, i) => (
           <div class="glass card lift reveal" style={`--d:${i * 80}ms`}>
             <div class="icon-tile"><s.icon /></div>
             <h3 class="h3">{s.title}</h3>
             <p class="body">{s.text}</p>
-            <div class="tags">{s.tags.map((t) => <span class="chip">{t}</span>)}</div>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Featured product -->
-  <section class="section" style="padding-top:0">
-    <div class="wrap">
-      <SectionHead num="02" label="featured product" title="Nooraya, our flagship app." sub="Proof of how we work: a polished, privacy-respecting app used every day, built and maintained in-house." />
-      <Nooraya />
-    </div>
-  </section>
-
   <!-- Process -->
   <section class="section" style="padding-top:0">
     <div class="wrap">
-      <SectionHead num="03" label="how we work" title="From idea to app store,<br/>without the chaos." />
+      <SectionHead num="03" label="how we build" title="How every Shoptic<br/>product is made." />
       <div class="steps">
         {steps.map((s, i) => (
           <div class="glass step lift reveal" style={`--d:${i * 90}ms`}>
@@ -120,3 +145,13 @@ const stack = ['Flutter', 'Dart', 'Kotlin', 'Android', 'Firebase', 'SQLite', 'As
 
   <CTA />
 </Layout>
+
+<style>
+  .prod { display: flex; flex-direction: column; }
+  .prod-shot { margin-top: 1.6rem; height: 260px; overflow: hidden; display: flex; justify-content: center; align-items: flex-start; padding: 18px 18px 0; }
+  .prod-shot img { width: 210px; border-radius: 26px 26px 0 0; }
+  .watch-shot { align-items: center; padding: 0; }
+  .prod-link { margin-top: 1.4rem; display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 500; color: var(--orange-hi); }
+  .prod-link :global(svg) { width: 17px; height: 17px; transition: transform 0.35s var(--ease); }
+  .prod:hover .prod-link :global(svg) { transform: translateX(4px); }
+</style>

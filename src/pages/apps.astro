@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import SectionHead from '../components/SectionHead.astro';
 import Nooraya from '../components/Nooraya.astro';
+import Store from '../components/Store.astro';
 import CTA from '../components/CTA.astro';
 import { BookOpen, Clock, Compass, Headphones, BellRing, Smartphone, Timer, ListChecks } from '@lucide/astro';
 
@@ -19,14 +20,14 @@ const pipeline = [
 ];
 ---
 
-<Layout title="Products — Shoptic Technologies" description="Apps built by Shoptic Technologies, including Nooraya, our flagship Islamic lifestyle companion on Google Play.">
+<Layout title="Products — Shoptic Technologies" description="Products built and run by Shoptic Technologies: Nooraya, the Islamic lifestyle app on Google Play, and shoptic.store, our online watch store.">
   <section class="page-hero">
     <div class="wrap">
-      <div class="eyebrow reveal"><span class="sl">//</span> products</div>
+      <div class="eyebrow reveal"><span class="sl">//</span> our products</div>
       <h1 class="display reveal mt-6" style="--d:80ms;font-size:clamp(2.5rem,5.6vw,4.8rem)">
-        <span class="text-silver">Products built</span><br /><span class="text-ember">with precision</span><span class="caret"></span>
+        <span class="text-silver">Products we build</span><br /><span class="text-ember">and run ourselves</span><span class="caret"></span>
       </h1>
-      <p class="lead reveal mt-6 max-w-2xl" style="--d:160ms">Our flagship app and the tools taking shape in our lab, all designed for calm, useful everyday software.</p>
+      <p class="lead reveal mt-6 max-w-2xl" style="--d:160ms">An app used every day and an online store, both designed, built and looked after by our own team.</p>
     </div>
   </section>
 
@@ -49,9 +50,16 @@ const pipeline = [
     </div>
   </section>
 
+  <section class="section" id="store" style="padding-top:0;scroll-margin-top:90px">
+    <div class="wrap">
+      <SectionHead num="02" label="shoptic.store" title="Great watches,<br/>honest prices." sub="Our online watch store, run by the same team and held to the same standard as our apps." />
+      <Store />
+    </div>
+  </section>
+
   <section class="section" style="padding-top:0">
     <div class="wrap">
-      <SectionHead num="02" label="in the lab" title="What we are building next." sub="Projects our team is designing right now. Roadmap 2026." />
+      <SectionHead num="03" label="in the lab" title="What we are building next." sub="Projects our team is designing right now. Roadmap 2026." />
       <div class="cards-2">
         {pipeline.map((p, i) => (
           <div class="glass card lift reveal" style={`--d:${i * 100}ms`}>
